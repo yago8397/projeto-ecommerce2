@@ -18,7 +18,7 @@
 						<a href="index.php">
 	        			<img class="img-fluid" src="imagens/logo.png" alt="Logo da empresa"/>
 	        			</a>
-	      				</figure>
+	      				</figure>	      				
 					</div>
 		      		<div class="col-md-8 mt-3" >
 		      			<form >
@@ -26,8 +26,8 @@
 		      			</form>
 		      		</div>
 		      		<div class="col-md-2">
-		      		<div class="w-50 h-25 mt-1 ">
-		      			<a class="btn btn btn-info btn-sm " data-toggle="modal" data-target="#exampleModal" href="">Login</a>
+		      		<div class="w-50 h-25 mt-1">
+		      			<a class="btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
 		      		</div>		      				      		
 		      		<div class="w-50 h-25 mt-3 ">
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
@@ -42,7 +42,7 @@
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
-	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php"">Início</a>
+	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php">Início</a>
 					</li>
 					<li class="nav-item dropdown mr-1">
 					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Informática e Telefonia</a>
@@ -88,78 +88,116 @@
 			</nav>			
 
 			<section>
-				<div class="col-md-6 offset-md-3">
-					<figure class="figure mt-2 mb-2">
-	        		<img class="img-fluid"  src="imagens/gif.gif" alt="Banner da empresa" />
-	      			</figure>
-				</div>
-
-				<div class="row m-1">
-
-					<div class="col-md-4">
-
-					<div class="card h-100 w-auto" >
-					<img class="card-img-top p-3" src="imagens/iphone.jpg" alt="Card image cap">
-					<div class="card-body bg-info">
-					<h5 class="card-title ">iPhone 7 Plus</h5>
-					<p class="card-text ">128GB Vermelho Tela Retina HD 5,5" 3D Touch Câmera Dupla de 12MP - Apple.</p>
-					</div>
-					<ul class="list-group list-group-flush">
-					<li class="list-group-item bg-info ">De: R$ 4.324,99 </li>
-					<li class="list-group-item bg-info">Por: R$ 3.892,49 no boleto</li>
-					<li class="list-group-item bg-info ">Ou R$ 4.324,99 em até 15x de R$ 288,33 s/ juros</li>
-					</ul>
-					<div class="card-body">
-					<a href="#" class="btn btn-info p-1">Detalhes</a>
-					<a href="#" class="btn btn-info p-1">Comprar</a>
-					</div>
-					</div>
-
-					</div>
-
-					<div class="col-md-4  ">	
-
-					<div class="card h-100 w-auto" >
-					<img class="card-img-top p-3" src="imagens/tv.png" alt="Card image cap">
-					<div class="card-body bg-info">
-					<h5 class="card-title ">Smart TV LED 55" Philco</h5>
-					<p class="card-text">PH55A17DSGWA Full HD com Conversor Digital 3 HDMI 2 USB Wi-Fi.</p>
-					</div>
-					<ul class="list-group list-group-flush">
-					<li class="list-group-item bg-info">De: R$ 2.299,99 </li>
-					<li class="list-group-item bg-info">Por: R$ 2.699,99 no boleto</li>
-					<li class="list-group-item bg-info">Ou R$ 2.299,99 em até 20x de R$ 114,99 s/ juros</li>
-					</ul>
-					<div class="card-body">
-					<a href="#" class="btn btn-info p-1">Detalhes</a>
-					<a href="#" class="btn btn-info p-1">Comprar</a>
-					</div>
-					</div>
-
+				<div class="col-md  mt-2 mb-2 p-3 border border-info rounded" style="background-color: #BDBDBD">
 					
+					<h5 class=" row card-header bg-info mb-2">Faça o seu Cadastro:</h5>
+
+					<form>
+
+					<div class="row">
+				    <div class="form-group col-md-8">
+				    <label for="email">Email:</label>
+				    <input required type="email" class="form-control" id="email" placeholder="Digite o email" maxlength="30">
+				    </div>				    
+				    <div class="form-group col-md-4">
+				    <label for="login">Login:</label>
+				    <input required type="text" class="form-control" id="login" placeholder="Digite o Login" maxlength="30">
+				    </div>				    
+					</div>				    
+					
+
+					<div class="row">
+				    <div class="form-group col-md-6">
+				    <label for="senha">Senha:</label>
+				    <input required type="password" class="form-control" id="senha" placeholder="Digite a senha" maxlength="30">
+				    </div>
+				    <div class="form-group col-md-6">
+				    <label for="csenha">Comfirmar Senha:</label>
+				    <input required type="password" class="form-control" id="csenha" placeholder="Comfirmar senha" maxlength="30">
+				    </div>
 					</div>
 
+					<div class="row">
+				    <div class="form-group col-md-6">
+				    <label for="nome">Nome:</label>
+				    <input required type="text" class="form-control" id="nome" placeholder="Digite o nome" maxlength="30">
+				    </div>
+				    <div class="form-group col-md-3">
+				    <label for="dtn">Data de Nasc.:</label>
+				    <input required type="date" class="form-control" id="dtn" placeholder="">
+				    </div>
+				    <div class="form-group col-md-3">
+				    <label for="cpf">CPF:</label>
+				    <input required type="text" class="form-control" id="cpf" placeholder="FALTA MASCARA" maxlength="14">
+				    </div>
+					</div>
 
-					<div class="col-md-4 ">	
+					<div class="row">		    
+				    <div class="form-group col-md-4">
+					<label for="sexo">Sexo:</label>
+					<select id="sexo" class="form-control">
+					<option disabled selected>Sexo</option>
+					<option>Masculino</option>
+					<option>Feminino</option>
+					</select>
+					</div>
+					<div class="form-group col-md-4">
+				    <label for="tel">Tel.:</label>
+				    <input required type="text" class="form-control" id="tel" placeholder="FALTA MASCARA" maxlength="12">
+				    </div>
+				    <div class="form-group col-md-4">
+				    <label for="cel">Cel.:</label>
+				    <input required type="text" class="form-control" id="cel" placeholder="FALTA MASCARA" maxlength="11" >
+				    </div>
+					</div>
 
-					<div class="card h-100 w-auto" >
-					<img class="card-img-top p-3" src="imagens/tb.jpg" alt="Card image cap">
-					<div class="card-body bg-info">
-					<h5 class="card-title">Tablet Multilaser M7S</h5>
-					<p  class="card-text">8GB Wi-Fi 7" Android 4.4 Quad Core - Preto.</p>
+					<div class="row">
+					<div class="form-group col-md-4">
+				    <label for="cep">CEP:</label>
+				    <input required type="text" class="form-control" id="cep" placeholder="FALTA MASCARA">
+				    </div>
+				    <div class="form-group col-md-4">
+					<label for="uf">UF:</label>
+					<select id="uf" class="form-control">
+					<option disabled selected>Estado</option>
+					<option>RJ</option>
+					<option>SP</option>
+					<option>MG</option>
+					<option>ES</option>
+					</select>
 					</div>
-					<ul class="list-group list-group-flush">
-					<li class="list-group-item bg-info">De: R$ R$ 271,00 </li>
-					<li class="list-group-item bg-info">Por: R$ 3.892,49 no boleto</li>
-					<li class="list-group-item bg-info">Ou R$ 271,00 em até 10x de R$ 27,10 s/ juros</li>
-					</ul>
-					<div class="card-body">
-					<a href="#" class="btn btn-info p-1">Detalhes</a>
-					<a href="#" class="btn btn-info p-1">Comprar</a>
-					</div>
-					</div>
-					</div>
-				</div>					
+					<div class="form-group col-md-4">
+				    <label for="cid">Cidade:</label>
+				    <input required type="text" class="form-control" id="cid" placeholder="Cidade">
+				    </div>
+				    </div>
+
+				    <div class="row">
+				   	<div class="form-group col-md-9">
+				    <label for="end">End.:</label>
+				    <input required type="text" class="form-control" id="end" placeholder="Digite o Endereço">
+				    </div>
+				    <div class="form-group col-md-3">
+				    <label for="num">Número.:</label>
+				    <input required type="text" class="form-control" id="num" placeholder="Número" maxlength="4">
+				    </div>
+				    </div>
+
+				    <div class="row">				    
+				    <div class="form-group col-md-4">
+				    <label for="bairro">Bairro.:</label>
+				    <input required type="text" class="form-control" id="bairro" placeholder="Bairro">
+				    </div>
+				    <div class="form-group col-md-8">
+				    <label for="comp">Complemento.:</label>
+				    <input required type="text" class="form-control" id="comp" placeholder="Complemento">
+				    </div>
+				    </div>
+
+					<button class="btn btn-info col-md-4 offset-md-4" type="submit">Enviar</button>
+
+					</form>
+				</div>								
 			</section>
 
 			<footer>
