@@ -11,7 +11,7 @@
 		<div class="container">	
 
 			<header>
-				<div class="row" style="background-color: #BDBDBD">
+				<div class="row border border-info rounded" style="background-color: #BDBDBD">
 
 					<div class="col-md-2 mt-2">
 						<figure class="figure">

@@ -11,7 +11,7 @@
 		<div class="container">	
 
 			<header>
-				<div class="row" style="background-color: #BDBDBD">
+				<div class="row border border-info rounded" style="background-color: #BDBDBD">
 
 					<div class="col-md-2 mt-2">
 						<figure class="figure">
@@ -95,14 +95,14 @@
 					<form>
 
 					<div class="row">
+					<div class="form-group col-md-4">
+				    <label for="login">Login:</label>
+				    <input required type="text" class="form-control" id="login" placeholder="Digite o Login" maxlength="30">
+				    </div>
 				    <div class="form-group col-md-8">
 				    <label for="email">Email:</label>
 				    <input required type="email" class="form-control" id="email" placeholder="Digite o email" maxlength="30">
-				    </div>				    
-				    <div class="form-group col-md-4">
-				    <label for="login">Login:</label>
-				    <input required type="text" class="form-control" id="login" placeholder="Digite o Login" maxlength="30">
-				    </div>				    
+				    </div>				    				    
 					</div>				    
 					
 
@@ -127,10 +127,16 @@
 				    <input required type="date" class="form-control" id="dtn" placeholder="">
 				    </div>
 				    <div class="form-group col-md-3">
-				    <label for="cpf">CPF:</label>
-				    <input required type="text" class="form-control" id="cpf" placeholder="FALTA MASCARA" maxlength="14">
-				    </div>
-					</div>
+					<label for="uf">UF:</label>
+					<select id="uf" class="form-control">
+					<option disabled selected>Estado</option>
+					<option>RJ</option>
+					<option>SP</option>
+					<option>MG</option>
+					<option>ES</option>
+					</select>
+					</div>				    
+					</div>  
 
 					<div class="row">		    
 				    <div class="form-group col-md-4">
@@ -153,29 +159,24 @@
 
 					<div class="row">
 					<div class="form-group col-md-4">
-				    <label for="cep">CEP:</label>
-				    <input required type="text" class="form-control" id="cep" placeholder="FALTA MASCARA">
+				    <label for="cpf">CPF:</label>
+				    <input required type="text" class="form-control" id="cpf" placeholder="FALTA MASCARA" maxlength="14">
 				    </div>
-				    <div class="form-group col-md-4">
-					<label for="uf">UF:</label>
-					<select id="uf" class="form-control">
-					<option disabled selected>Estado</option>
-					<option>RJ</option>
-					<option>SP</option>
-					<option>MG</option>
-					<option>ES</option>
-					</select>
-					</div>
+					<div class="form-group col-md-4">
+				    <label for="cep">CEP:</label>
+				    <input required type="text" class="form-control" id="cep" placeholder="FALTA MASCARA" maxlength="9">
+				    </div>				    
 					<div class="form-group col-md-4">
 				    <label for="cid">Cidade:</label>
-				    <input required type="text" class="form-control" id="cid" placeholder="Cidade">
+				    <input required type="text" class="form-control" id="cid" placeholder="Cidade"
+				    maxlength="30">
 				    </div>
 				    </div>
 
 				    <div class="row">
 				   	<div class="form-group col-md-9">
 				    <label for="end">End.:</label>
-				    <input required type="text" class="form-control" id="end" placeholder="Digite o Endereço">
+				    <input required type="text" class="form-control" id="end" placeholder="Digite o Endereço" maxlength="40">
 				    </div>
 				    <div class="form-group col-md-3">
 				    <label for="num">Número.:</label>
@@ -186,11 +187,11 @@
 				    <div class="row">				    
 				    <div class="form-group col-md-4">
 				    <label for="bairro">Bairro.:</label>
-				    <input required type="text" class="form-control" id="bairro" placeholder="Bairro">
+				    <input required type="text" class="form-control" id="bairro" placeholder="Bairro" maxlength="30">
 				    </div>
 				    <div class="form-group col-md-8">
 				    <label for="comp">Complemento.:</label>
-				    <input required type="text" class="form-control" id="comp" placeholder="Complemento">
+				    <input required type="text" class="form-control" id="comp" placeholder="Complemento" maxlength="40">
 				    </div>
 				    </div>
 
