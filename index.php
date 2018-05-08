@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "conexao.php";
 ?>
 
@@ -32,11 +33,19 @@ include "conexao.php";
 		      		</div>
 		      		<div class="col-md-2">
 		      		<div class="w-50 h-25 mt-1 ">
+		      			<?php 
+		      				if (isset($_SESSION['nome'])){
+
+		      					echo $_SESSION['nome'];
+		      				}
+		      					else{
+		      			 ?>
 		      			<a class="btn btn btn-info btn-sm " data-toggle="modal" data-target="#exampleModal" href="">Login</a>
 		      		</div>		      				      		
 		      		<div class="w-50 h-25 mt-3 ">
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
 		      		</div>
+		      		<?php } ?>
 		      		</div>
 				</div>
 			</header>			
