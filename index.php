@@ -1,3 +1,8 @@
+<?php
+include "conexao.php";
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -94,20 +99,24 @@
 	      			</figure>
 				</div>
 
+<?php 
+$stmt = $pdo->prepare('SELECT * FROM produtos');
+$stmt->execute();
+if($alvos = $stmt->fetchAll()){
+ ?>
+
 				<div class="row m-1">
 
 					<div class="col-md-4">
 
 					<div class="card h-100 w-auto" >
-					<img class="card-img-top p-3" src="imagens/iphone.jpg" alt="Card image cap">
+					<img class="card-img-top p-3" src=<?php echo $alvos[0]['img']; ?> alt="Card image cap">
 					<div class="card-body bg-info">
-					<h5 class="card-title ">iPhone 7 Plus</h5>
-					<p class="card-text ">128GB Vermelho Tela Retina HD 5,5" 3D Touch Câmera Dupla de 12MP - Apple.</p>
+					<h5 class="card-title "><?php echo $alvos[0]['nome'] ;?></h5>
+					<p class="card-text "><?php echo $alvos[0]['desc']; ?></p>
 					</div>
 					<ul class="list-group list-group-flush">
-					<li class="list-group-item bg-info ">De: R$ 4.324,99 </li>
-					<li class="list-group-item bg-info">Por: R$ 3.892,49 no boleto</li>
-					<li class="list-group-item bg-info ">Ou R$ 4.324,99 em até 15x de R$ 288,33 s/ juros</li>
+					<li class="list-group-item bg-info "><?php echo "R$ ".$alvos[0]['preco']; ?></li>
 					</ul>
 					<div class="card-body">
 					<a href="#" class="btn btn-info p-1">Detalhes</a>
@@ -120,15 +129,13 @@
 					<div class="col-md-4  ">	
 
 					<div class="card h-100 w-auto" >
-					<img class="card-img-top p-3" src="imagens/tv.png" alt="Card image cap">
+					<img class="card-img-top p-3" src=<?php echo $alvos[1]['img']; ?> alt="Card image cap">
 					<div class="card-body bg-info">
-					<h5 class="card-title ">Smart TV LED 55" Philco</h5>
-					<p class="card-text">PH55A17DSGWA Full HD com Conversor Digital 3 HDMI 2 USB Wi-Fi.</p>
+					<h5 class="card-title "><?php echo $alvos[1]['nome'] ;?></h5>
+					<p class="card-text"><?php echo $alvos[1]['desc']; ?></p>
 					</div>
 					<ul class="list-group list-group-flush">
-					<li class="list-group-item bg-info">De: R$ 2.299,99 </li>
-					<li class="list-group-item bg-info">Por: R$ 2.699,99 no boleto</li>
-					<li class="list-group-item bg-info">Ou R$ 2.299,99 em até 20x de R$ 114,99 s/ juros</li>
+					<li class="list-group-item bg-info"><?php echo "R$ ".$alvos[1]['preco']; ?></li>					
 					</ul>
 					<div class="card-body">
 					<a href="#" class="btn btn-info p-1">Detalhes</a>
@@ -143,15 +150,13 @@
 					<div class="col-md-4 ">	
 
 					<div class="card h-100 w-auto" >
-					<img class="card-img-top p-3" src="imagens/tb.jpg" alt="Card image cap">
+					<img class="card-img-top p-3" src=<?php echo $alvos[2]['img']; ?> alt="Card image cap">
 					<div class="card-body bg-info">
-					<h5 class="card-title">Tablet Multilaser M7S</h5>
-					<p  class="card-text">8GB Wi-Fi 7" Android 4.4 Quad Core - Preto.</p>
+					<h5 class="card-title"><?php echo $alvos[2]['nome'] ;?></h5>
+					<p  class="card-text"><?php echo $alvos[2]['desc']; ?></p>
 					</div>
 					<ul class="list-group list-group-flush">
-					<li class="list-group-item bg-info">De: R$ R$ 271,00 </li>
-					<li class="list-group-item bg-info">Por: R$ 3.892,49 no boleto</li>
-					<li class="list-group-item bg-info">Ou R$ 271,00 em até 10x de R$ 27,10 s/ juros</li>
+					<li class="list-group-item bg-info"><?php echo "R$ ".$alvos[2]['preco']; ?></li>					
 					</ul>
 					<div class="card-body">
 					<a href="#" class="btn btn-info p-1">Detalhes</a>
@@ -159,7 +164,8 @@
 					</div>
 					</div>
 					</div>
-				</div>					
+				</div>
+<?php } ?>					
 			</section>
 
 			<footer>
@@ -196,18 +202,18 @@
 </button>
 </div>
 <div class="modal-body">
-<form>
+<form method="post" action="login.php">
 <div class="form-group">
-<label for="exampleInputEmail1">Login:</label>
-<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu login.">
-<small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu loguin e senha com mais ninguém.</small>
+<label for="exampleInputEmail1" >Login:</label>
+<input type="text" name="login" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Digite seu login.">
+<small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu login e senha com mais ninguém.</small>
 </div>
 <div class="form-group">
-<label for="exampleInputPassword1">Senha:</label>
-<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha.">
+<label for="exampleInputPassword1" >Senha:</label>
+<input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha.">
 </div>
 <div class="form-check">
-<input type="checkbox" class="form-check-input" id="exampleCheck1">
+<input type="checkbox" class="form-check-input" id="exampleCheck1" required="">
 <label class="form-check-label" for="exampleCheck1">Eu li e concordo com os termos de uso.</label>
 </div>
 <button type="submit" class="btn btn-primary">Enviar</button>

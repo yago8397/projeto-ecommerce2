@@ -1,3 +1,6 @@
+<?php
+include "conexao.php";
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,7 +33,7 @@
 		      			<a class="btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
 		      		</div>		      				      		
 		      		<div class="w-50 h-25 mt-3 ">
-		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
+		      			<a class="btn btn btn-info btn-sm " href="cadas.php">Cadastro</a>
 		      		</div>
 		      		</div>
 				</div>
@@ -92,16 +95,18 @@
 					
 					<h5 class=" row card-header bg-info mb-2">Faça o seu Cadastro:</h5>
 
-					<form>
+
+
+					<form id="form_usuarios" method="post" action="cadas.php">
 
 					<div class="row">
 					<div class="form-group col-md-4">
 				    <label for="login">Login:</label>
-				    <input required type="text" class="form-control" id="login" placeholder="Digite o Login" maxlength="30">
+				    <input required type="text" class="form-control" name="login" placeholder="Digite o Login" maxlength="30">
 				    </div>
 				    <div class="form-group col-md-8">
 				    <label for="email">Email:</label>
-				    <input required type="email" class="form-control" id="email" placeholder="Digite o email" maxlength="30">
+				    <input required type="email" class="form-control" name="email" placeholder="Digite o email" maxlength="30">
 				    </div>				    				    
 					</div>				    
 					
@@ -109,26 +114,26 @@
 					<div class="row">
 				    <div class="form-group col-md-6">
 				    <label for="senha">Senha:</label>
-				    <input required type="password" class="form-control" id="senha" placeholder="Digite a senha" maxlength="30">
+				    <input required type="password" class="form-control" name="senha" placeholder="Digite a senha" maxlength="30">
 				    </div>
 				    <div class="form-group col-md-6">
 				    <label for="csenha">Comfirmar Senha:</label>
-				    <input required type="password" class="form-control" id="csenha" placeholder="Comfirmar senha" maxlength="30">
+				    <input required type="password" class="form-control" name="csenha" placeholder="Comfirmar senha" maxlength="30">
 				    </div>
 					</div>
 
 					<div class="row">
 				    <div class="form-group col-md-6">
 				    <label for="nome">Nome:</label>
-				    <input required type="text" class="form-control" id="nome" placeholder="Digite o nome" maxlength="30">
+				    <input required type="text" class="form-control" name="nome" placeholder="Digite o nome" maxlength="30">
 				    </div>
 				    <div class="form-group col-md-3">
 				    <label for="dtn">Data de Nasc.:</label>
-				    <input required type="date" class="form-control" id="dtn" placeholder="">
+				    <input required type="date" class="form-control" name="dtn" placeholder="">
 				    </div>
 				    <div class="form-group col-md-3">
 					<label for="uf">UF:</label>
-					<select id="uf" class="form-control">
+					<select name="uf" class="form-control">
 					<option disabled selected>Estado</option>
 					<option>RJ</option>
 					<option>SP</option>
@@ -141,7 +146,7 @@
 					<div class="row">		    
 				    <div class="form-group col-md-4">
 					<label for="sexo">Sexo:</label>
-					<select id="sexo" class="form-control">
+					<select name="sexo" class="form-control">
 					<option disabled selected>Sexo</option>
 					<option>Masculino</option>
 					<option>Feminino</option>
@@ -149,26 +154,26 @@
 					</div>
 					<div class="form-group col-md-4">
 				    <label for="tel">Tel.:</label>
-				    <input required type="text" class="form-control" id="tel" placeholder="FALTA MASCARA" maxlength="12">
+				    <input required type="text" class="form-control" name="tel" placeholder="FALTA MASCARA" maxlength="12">
 				    </div>
 				    <div class="form-group col-md-4">
 				    <label for="cel">Cel.:</label>
-				    <input required type="text" class="form-control" id="cel" placeholder="FALTA MASCARA" maxlength="11" >
+				    <input required type="text" class="form-control" name="cel" placeholder="FALTA MASCARA" maxlength="11" >
 				    </div>
 					</div>
 
 					<div class="row">
 					<div class="form-group col-md-4">
 				    <label for="cpf">CPF:</label>
-				    <input required type="text" class="form-control" id="cpf" placeholder="FALTA MASCARA" maxlength="14">
+				    <input required type="text" class="form-control" name="cpf" placeholder="FALTA MASCARA" maxlength="14">
 				    </div>
 					<div class="form-group col-md-4">
 				    <label for="cep">CEP:</label>
-				    <input required type="text" class="form-control" id="cep" placeholder="FALTA MASCARA" maxlength="9">
+				    <input required type="text" class="form-control" name="cep" placeholder="FALTA MASCARA" maxlength="9">
 				    </div>				    
 					<div class="form-group col-md-4">
 				    <label for="cid">Cidade:</label>
-				    <input required type="text" class="form-control" id="cid" placeholder="Cidade"
+				    <input required type="text" class="form-control" name="cid" placeholder="Cidade"
 				    maxlength="30">
 				    </div>
 				    </div>
@@ -176,26 +181,26 @@
 				    <div class="row">
 				   	<div class="form-group col-md-9">
 				    <label for="end">End.:</label>
-				    <input required type="text" class="form-control" id="end" placeholder="Digite o Endereço" maxlength="40">
+				    <input required type="text" class="form-control" name="end" placeholder="Digite o Endereço" maxlength="40">
 				    </div>
 				    <div class="form-group col-md-3">
 				    <label for="num">Número.:</label>
-				    <input required type="text" class="form-control" id="num" placeholder="Número" maxlength="4">
+				    <input required type="text" class="form-control" name="num" placeholder="Número" maxlength="4">
 				    </div>
 				    </div>
 
 				    <div class="row">				    
 				    <div class="form-group col-md-4">
 				    <label for="bairro">Bairro.:</label>
-				    <input required type="text" class="form-control" id="bairro" placeholder="Bairro" maxlength="30">
+				    <input required type="text" class="form-control" name="bairro" placeholder="Bairro" maxlength="30">
 				    </div>
 				    <div class="form-group col-md-8">
 				    <label for="comp">Complemento.:</label>
-				    <input required type="text" class="form-control" id="comp" placeholder="Complemento" maxlength="40">
+				    <input required type="text" class="form-control" name="comp" placeholder="Complemento" maxlength="40">
 				    </div>
 				    </div>
 
-					<button class="btn btn-info col-md-4 offset-md-4" type="submit">Enviar</button>
+					<button class="btn btn-info col-md-4 offset-md-4" type="submit">Cadastrar</button>
 
 					</form>
 				</div>								
@@ -235,18 +240,18 @@
 </button>
 </div>
 <div class="modal-body">
-<form>
+<form method="post" action="login.php">
 <div class="form-group">
-<label for="exampleInputEmail1">Login:</label>
-<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu login.">
-<small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu loguin e senha com mais ninguém.</small>
+<label for="exampleInputEmail1" >Login:</label>
+<input type="text" name="login" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Digite seu login.">
+<small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu login e senha com mais ninguém.</small>
 </div>
 <div class="form-group">
-<label for="exampleInputPassword1">Senha:</label>
-<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha.">
+<label for="exampleInputPassword1" >Senha:</label>
+<input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha.">
 </div>
 <div class="form-check">
-<input type="checkbox" class="form-check-input" id="exampleCheck1">
+<input type="checkbox" class="form-check-input" id="exampleCheck1" required="">
 <label class="form-check-label" for="exampleCheck1">Eu li e concordo com os termos de uso.</label>
 </div>
 <button type="submit" class="btn btn-primary">Enviar</button>
