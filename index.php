@@ -3,9 +3,8 @@ session_start();
 include "conexao.php";
 ?>
 
-
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta charset="utf-8">
@@ -33,19 +32,18 @@ include "conexao.php";
 		      		</div>
 		      		<div class="col-md-2">
 		      		<div class="w-50 h-25 mt-1 ">
-		      			<?php 
-		      				if (isset($_SESSION['nome'])){
-
-		      					echo $_SESSION['nome'];
-		      				}
-		      					else{
-		      			 ?>
+<?php 
+if (isset($_SESSION['nome'])){
+echo $_SESSION['nome'];
+}
+else{
+?>
 		      			<a class="btn btn btn-info btn-sm " data-toggle="modal" data-target="#exampleModal" href="">Login</a>
 		      		</div>		      				      		
 		      		<div class="w-50 h-25 mt-3 ">
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
 		      		</div>
-		      		<?php } ?>
+<?php } ?>
 		      		</div>
 				</div>
 			</header>			
@@ -114,61 +112,52 @@ $stmt->execute();
 if($alvos = $stmt->fetchAll()){
  ?>
 
-				<div class="row m-1">
+				<div class="row col-md-12 ">
 
 					<div class="col-md-4">
 
 					<div class="card h-100 w-auto" >
 					<img class="card-img-top p-3" src=<?php echo $alvos[0]['img']; ?> alt="Card image cap">
 					<div class="card-body bg-info">
-					<h5 class="card-title "><?php echo $alvos[0]['nome'] ;?></h5>
-					<p class="card-text "><?php echo $alvos[0]['desc']; ?></p>
-					</div>
-					<ul class="list-group list-group-flush">
-					<li class="list-group-item bg-info "><?php echo "R$ ".$alvos[0]['preco']; ?></li>
-					</ul>
-					<div class="card-body">
-					<a href="#" class="btn btn-info p-1">Detalhes</a>
+					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos[0]['nome'] ;?></h5>
+					<p class="card-text text-center h-100 w-auto"><?php echo $alvos[0]['desc']; ?></p>
+					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos[0]['preco']; ?></p>
+					</div>					
+					<div class="row p-3 m-0">
+					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
 					<a href="#" class="btn btn-info p-1">Comprar</a>
 					</div>
 					</div>
-
 					</div>
 
-					<div class="col-md-4  ">	
+					<div class="col-md-4">
 
 					<div class="card h-100 w-auto" >
 					<img class="card-img-top p-3" src=<?php echo $alvos[1]['img']; ?> alt="Card image cap">
 					<div class="card-body bg-info">
-					<h5 class="card-title "><?php echo $alvos[1]['nome'] ;?></h5>
-					<p class="card-text"><?php echo $alvos[1]['desc']; ?></p>
+					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos[1]['nome'] ;?></h5>
+					<p class="card-text text-center h-100 w-auto"><?php echo $alvos[1]['desc']; ?></p>
+					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos[1]['preco']; ?></p>
 					</div>
-					<ul class="list-group list-group-flush">
-					<li class="list-group-item bg-info"><?php echo "R$ ".$alvos[1]['preco']; ?></li>					
-					</ul>
-					<div class="card-body">
-					<a href="#" class="btn btn-info p-1">Detalhes</a>
+					<div class="row p-3 m-0">
+					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
 					<a href="#" class="btn btn-info p-1">Comprar</a>
 					</div>
+					</div>					
 					</div>
 
-					
-					</div>
 
-
-					<div class="col-md-4 ">	
+					<div class="col-md-4">
 
 					<div class="card h-100 w-auto" >
 					<img class="card-img-top p-3" src=<?php echo $alvos[2]['img']; ?> alt="Card image cap">
 					<div class="card-body bg-info">
-					<h5 class="card-title"><?php echo $alvos[2]['nome'] ;?></h5>
-					<p  class="card-text"><?php echo $alvos[2]['desc']; ?></p>
-					</div>
-					<ul class="list-group list-group-flush">
-					<li class="list-group-item bg-info"><?php echo "R$ ".$alvos[2]['preco']; ?></li>					
-					</ul>
-					<div class="card-body">
-					<a href="#" class="btn btn-info p-1">Detalhes</a>
+					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos[2]['nome'] ;?></h5>
+					<p class="card-text text-center h-100 w-auto"><?php echo $alvos[2]['desc']; ?></p>
+					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos[2]['preco']; ?></p>
+					</div>					
+					<div class="row p-3 m-0">
+					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
 					<a href="#" class="btn btn-info p-1">Comprar</a>
 					</div>
 					</div>

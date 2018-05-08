@@ -1,8 +1,9 @@
 <?php
 include "conexao.php";
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta charset="utf-8">
@@ -91,115 +92,103 @@ include "conexao.php";
 			</nav>			
 
 			<section>
-				<div class="col-md  mt-2 mb-2 p-3 border border-info rounded" style="background-color: #BDBDBD">
+				<div class="col-md col-xl-8 offset-xl-2 mt-2 mb-2 p-3 border border-info rounded" style="background-color: #BDBDBD">
 					
 					<h5 class=" row card-header bg-info mb-2">Faça o seu Cadastro:</h5>
-
-
 
 					<form id="form_usuarios" method="post" action="cadas.php">
 
 					<div class="row">
+
 					<div class="form-group col-md-4">
 				    <label for="login">Login:</label>
-				    <input required type="text" class="form-control" name="login" placeholder="Digite o Login" maxlength="30">
+				    <input required type="text" class="form-control" name="login" placeholder="Digite o Login">
 				    </div>
 				    <div class="form-group col-md-8">
 				    <label for="email">Email:</label>
-				    <input required type="email" class="form-control" name="email" placeholder="Digite o email" maxlength="30">
+				    <input required type="email" class="form-control" name="email" placeholder="Digite o email">
 				    </div>				    				    
 					</div>				    
 					
 
 					<div class="row">
+
 				    <div class="form-group col-md-6">
 				    <label for="senha">Senha:</label>
-				    <input required type="password" class="form-control" name="senha" placeholder="Digite a senha" maxlength="30">
+				    <input required type="password" class="form-control" name="senha" placeholder="Digite a senha">
 				    </div>
 				    <div class="form-group col-md-6">
 				    <label for="csenha">Comfirmar Senha:</label>
-				    <input required type="password" class="form-control" name="csenha" placeholder="Comfirmar senha" maxlength="30">
+				    <input required type="password" class="form-control" name="csenha" placeholder="Comfirmar senha">
 				    </div>
 					</div>
 
 					<div class="row">
+
 				    <div class="form-group col-md-6">
 				    <label for="nome">Nome:</label>
-				    <input required type="text" class="form-control" name="nome" placeholder="Digite o nome" maxlength="30">
-				    </div>
-				    <div class="form-group col-md-3">
+				    <input required type="text" class="form-control" name="nome" placeholder="Digite o nome">
+				    </div>				    
+				    <div class="form-group col-md-4">
 				    <label for="dtn">Data de Nasc.:</label>
 				    <input required type="date" class="form-control" name="dtn" placeholder="">
 				    </div>
-				    <div class="form-group col-md-3">
+				    <div class="form-group col-md-2">
+					<label for="sexo">Sexo:</label>
+					<select name="sexo" class="form-control">
+					<option disabled selected>-</option>
+					<option>M</option>
+					<option>F</option>
+					</select>
+					</div>				    				    
+					</div>  
+
+					<div class="row">
+
+					<div class="form-group col-md-6">
+				    <label for="snome">Sobrenome:</label>
+				    <input required type="text" class="form-control" name="snome" placeholder="Digite o Sobrenome">
+				    </div>				    
+					<div class="form-group col-md-3">
+				    <label for="tel">Tel.:</label>
+				    <input required type="text" class="form-control" name="tel" placeholder="FALTA MASCARA">
+				    </div>
+				    <div class="form-group col-md-2">
 					<label for="uf">UF:</label>
 					<select name="uf" class="form-control">
-					<option disabled selected>Estado</option>
+					<option disabled selected>-</option>
 					<option>RJ</option>
 					<option>SP</option>
 					<option>MG</option>
 					<option>ES</option>
 					</select>
-					</div>				    
-					</div>  
-
-					<div class="row">		    
-				    <div class="form-group col-md-4">
-					<label for="sexo">Sexo:</label>
-					<select name="sexo" class="form-control">
-					<option disabled selected>Sexo</option>
-					<option>Masculino</option>
-					<option>Feminino</option>
-					</select>
-					</div>
-					<div class="form-group col-md-4">
-				    <label for="tel">Tel.:</label>
-				    <input required type="text" class="form-control" name="tel" placeholder="FALTA MASCARA" maxlength="12">
-				    </div>
-				    <div class="form-group col-md-4">
-				    <label for="cel">Cel.:</label>
-				    <input required type="text" class="form-control" name="cel" placeholder="FALTA MASCARA" maxlength="11" >
-				    </div>
+					</div>				   
 					</div>
 
-					<div class="row">
-					<div class="form-group col-md-4">
+					<div class="row">					
+									    
+				    <div class="form-group col-md-4">
 				    <label for="cpf">CPF:</label>
-				    <input required type="text" class="form-control" name="cpf" placeholder="FALTA MASCARA" maxlength="14">
+				    <input required type="text" class="form-control" name="cpf" placeholder="FALTA MASCARA">
 				    </div>
-					<div class="form-group col-md-4">
+				    <div class="form-group col-md-4">
 				    <label for="cep">CEP:</label>
-				    <input required type="text" class="form-control" name="cep" placeholder="FALTA MASCARA" maxlength="9">
-				    </div>				    
-					<div class="form-group col-md-4">
-				    <label for="cid">Cidade:</label>
-				    <input required type="text" class="form-control" name="cid" placeholder="Cidade"
-				    maxlength="30">
+				    <input required type="text" class="form-control" name="cep" placeholder="FALTA MASCARA">
 				    </div>
+				    <div class="form-group col-md-4">
+				    <label for="cid">Cidade:</label>
+				    <input required type="text" class="form-control" name="cid" placeholder="Digite a Cidade">
+				    </div>					
 				    </div>
 
 				    <div class="row">
-				   	<div class="form-group col-md-9">
+
+				   	<div class="form-group col-md-12">
 				    <label for="end">End.:</label>
-				    <input required type="text" class="form-control" name="end" placeholder="Digite o Endereço" maxlength="40">
+				    <input required type="text" class="form-control" name="end" placeholder="Digite o Endereço">
+				    </div>				    
 				    </div>
-				    <div class="form-group col-md-3">
-				    <label for="num">Número.:</label>
-				    <input required type="text" class="form-control" name="num" placeholder="Número" maxlength="4">
-				    </div>
-				    </div>
-
-				    <div class="row">				    
-				    <div class="form-group col-md-4">
-				    <label for="bairro">Bairro.:</label>
-				    <input required type="text" class="form-control" name="bairro" placeholder="Bairro" maxlength="30">
-				    </div>
-				    <div class="form-group col-md-8">
-				    <label for="comp">Complemento.:</label>
-				    <input required type="text" class="form-control" name="comp" placeholder="Complemento" maxlength="40">
-				    </div>
-				    </div>
-
+				   
 					<button class="btn btn-info col-md-4 offset-md-4" type="submit">Cadastrar</button>
 
 					</form>
@@ -242,12 +231,12 @@ include "conexao.php";
 <div class="modal-body">
 <form method="post" action="login.php">
 <div class="form-group">
-<label for="exampleInputEmail1" >Login:</label>
+<label for="exampleInputEmail1">Login:</label>
 <input type="text" name="login" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Digite seu login.">
 <small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu login e senha com mais ninguém.</small>
 </div>
 <div class="form-group">
-<label for="exampleInputPassword1" >Senha:</label>
+<label for="exampleInputPassword1">Senha:</label>
 <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha.">
 </div>
 <div class="form-check">
