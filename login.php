@@ -14,10 +14,11 @@ if($alvos = $stmt->fetchAll()){
 	$_SESSION['nome'] = $alvos[0]['nome'];
 	header('location: index.php');
 } else{
-	echo "ERRRRROOOOOOOOOOOOOOU!";
-	header('refresh:3;url=http://localhost/ProjetoFinal/projeto-ecommerce2/',true,303);
+?>
+<script  type="text/javascript" language="javascript1.5">
+	alert("Login ou Senha Inválidos!")
+	</script>
+<?php
+	header('refresh:0;url=http://localhost/ProjetoFinal/projeto-ecommerce2/',true,303);
 }
-
-
-
 ?>

@@ -34,7 +34,7 @@ include "conexao.php";
 		      			<a class="btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
 		      		</div>		      				      		
 		      		<div class="w-50 h-25 mt-3 ">
-		      			<a class="btn btn btn-info btn-sm " href="cadas.php">Cadastro</a>
+		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
 		      		</div>
 		      		</div>
 				</div>
@@ -101,11 +101,11 @@ include "conexao.php";
 					<div class="row">
 
 					<div class="form-group col-md-4">
-				    <label for="login">Login:</label>
+				    <label id="login">Login:</label>
 				    <input required type="text" class="form-control" name="login" placeholder="Digite o Login">
 				    </div>
 				    <div class="form-group col-md-8">
-				    <label for="email">Email:</label>
+				    <label id="email">Email:</label>
 				    <input required type="email" class="form-control" name="email" placeholder="Digite o email">
 				    </div>				    				    
 					</div>				    
@@ -114,11 +114,11 @@ include "conexao.php";
 					<div class="row">
 
 				    <div class="form-group col-md-6">
-				    <label for="senha">Senha:</label>
+				    <label id="senha">Senha:</label>
 				    <input required type="password" class="form-control" name="senha" placeholder="Digite a senha">
 				    </div>
 				    <div class="form-group col-md-6">
-				    <label for="csenha">Comfirmar Senha:</label>
+				    <label id="csenha">Comfirmar Senha:</label>
 				    <input required type="password" class="form-control" name="csenha" placeholder="Comfirmar senha">
 				    </div>
 					</div>
@@ -126,15 +126,15 @@ include "conexao.php";
 					<div class="row">
 
 				    <div class="form-group col-md-6">
-				    <label for="nome">Nome:</label>
+				    <label id="nome">Nome:</label>
 				    <input required type="text" class="form-control" name="nome" placeholder="Digite o nome">
 				    </div>				    
 				    <div class="form-group col-md-4">
-				    <label for="dtn">Data de Nasc.:</label>
+				    <label id="dtn">Data de Nasc.:</label>
 				    <input required type="date" class="form-control" name="dtn" placeholder="">
 				    </div>
 				    <div class="form-group col-md-2">
-					<label for="sexo">Sexo:</label>
+					<label id="sexo">Sexo:</label>
 					<select name="sexo" class="form-control">
 					<option disabled selected>-</option>
 					<option>M</option>
@@ -146,15 +146,15 @@ include "conexao.php";
 					<div class="row">
 
 					<div class="form-group col-md-6">
-				    <label for="snome">Sobrenome:</label>
+				    <label id="snome">Sobrenome:</label>
 				    <input required type="text" class="form-control" name="snome" placeholder="Digite o Sobrenome">
 				    </div>				    
 					<div class="form-group col-md-3">
-				    <label for="tel">Tel.:</label>
+				    <label id="tel">Tel.:</label>
 				    <input required type="text" class="form-control" name="tel" placeholder="FALTA MASCARA">
 				    </div>
 				    <div class="form-group col-md-2">
-					<label for="uf">UF:</label>
+					<label id="uf">UF:</label>
 					<select name="uf" class="form-control">
 					<option disabled selected>-</option>
 					<option>RJ</option>
@@ -168,15 +168,15 @@ include "conexao.php";
 					<div class="row">					
 									    
 				    <div class="form-group col-md-4">
-				    <label for="cpf">CPF:</label>
+				    <label id="cpf">CPF:</label>
 				    <input required type="text" class="form-control" name="cpf" placeholder="FALTA MASCARA">
 				    </div>
 				    <div class="form-group col-md-4">
-				    <label for="cep">CEP:</label>
+				    <label id="cep">CEP:</label>
 				    <input required type="text" class="form-control" name="cep" placeholder="FALTA MASCARA">
 				    </div>
 				    <div class="form-group col-md-4">
-				    <label for="cid">Cidade:</label>
+				    <label id="cid">Cidade:</label>
 				    <input required type="text" class="form-control" name="cid" placeholder="Digite a Cidade">
 				    </div>					
 				    </div>
@@ -184,8 +184,8 @@ include "conexao.php";
 				    <div class="row">
 
 				   	<div class="form-group col-md-12">
-				    <label for="end">End.:</label>
-				    <input required type="text" class="form-control" name="end" placeholder="Digite o Endereço">
+				    <label id="ende">End.:</label>
+				    <input required type="text" class="form-control" name="ende" placeholder="Digite o Endereço">
 				    </div>				    
 				    </div>
 				   

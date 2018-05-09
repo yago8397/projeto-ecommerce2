@@ -8,8 +8,7 @@ include "conexao.php";
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="css/bootstrap.css" >
-		<link rel="stylesheet" type="text/css" href="estilo.css">		
+		<link rel="stylesheet" href="css/bootstrap.css">					
 		<title>Gaia Shopping</title>
 	</head>
 	<body>
@@ -18,10 +17,10 @@ include "conexao.php";
 			<header>
 				<div class="row border border-info rounded" style="background-color: #BDBDBD">
 
-					<div class="col-md-2 mt-2">
+					<div class="col-md-2 mt-2 ">
 						<figure class="figure">
 						<a href="index.php">
-	        			<img class="img-fluid" src="imagens/logo.png" alt="Logo da empresa"/>
+	        			<img class="img-fluid " src="imagens/logo.png" alt="Logo da empresa"/>
 	        			</a>
 	      				</figure>
 					</div>
@@ -29,22 +28,33 @@ include "conexao.php";
 		      			<form >
 		        		<input class="form-control mr-sm-2 " type="search" placeholder="Qual produto está procurando?" aria-label="Search">	
 		      			</form>
-		      		</div>
-		      		<div class="col-md-2">
-		      		<div class="w-50 h-25 mt-1 ">
+		      		</div>		      		
 <?php 
 if (isset($_SESSION['nome'])){
-echo $_SESSION['nome'];
+?>					
+					<div class="col-md-2 mt-1 mb-1 text-dark">
+					
+		      		<p class="">Ola, <a href=""><?php echo $_SESSION['nome'];?></a><br>Seja Bem-Vindo!</p>
+		      		
+		      		  		      		
+		      		<a href="" class="btn btn btn-info btn-sm "><i class="fas fa-cart-plus"></i></a>
+		      		<a href="" class="btn btn btn-info btn-sm"><i class="fas fa-sign-out-alt"></i></a>
+		      		
+
+		      		</div>		      										
+<?php
 }
 else{
 ?>
-		      			<a class="btn btn btn-info btn-sm " data-toggle="modal" data-target="#exampleModal" href="">Login</a>
+					<div class="col-md-2">
+		      		<div class="w-50 h-25 mt-1">
+		      			<a class="btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
 		      		</div>		      				      		
 		      		<div class="w-50 h-25 mt-3 ">
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
 		      		</div>
-<?php } ?>
 		      		</div>
+<?php } ?>
 				</div>
 			</header>			
 			
@@ -54,7 +64,7 @@ else{
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
-	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php"">Início</a>
+	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php" >Início</a>
 					</li>
 					<li class="nav-item dropdown mr-1">
 					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Informática e Telefonia</a>
