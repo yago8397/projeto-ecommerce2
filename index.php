@@ -26,7 +26,7 @@ include "conexao.php";
 					</div>
 		      		<div class="col-md-8 mt-3" >
 		      			<form >
-		        		<input class="form-control mr-sm-2 " type="search" placeholder="Qual produto está procurando?" aria-label="Search">	
+		        		<input class="form-control mr-sm-2 " action="procurar.php"	 type="search" placeholder="Qual produto está procurando?" aria-label="Search">	
 		      			</form>
 		      		</div>		      		
 <?php 
@@ -38,7 +38,7 @@ if (isset($_SESSION['nome'])){
 		      		
 		      		  		      		
 		      		<a href="" class="btn btn btn-info btn-sm "><i class="fas fa-cart-plus"></i></a>
-		      		<a href="" class="btn btn btn-info btn-sm"><i class="fas fa-sign-out-alt"></i></a>
+		      		<a href="desloga.php" class="btn btn btn-info btn-sm"><i class="fas fa-sign-out-alt"></i></a>
 		      		
 
 		      		</div>		      										

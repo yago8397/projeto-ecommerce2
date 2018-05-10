@@ -16,46 +16,45 @@ include 'conexao.php';
 	$cid = $_POST['cid'];
 	$ende = $_POST['ende'];
 	
-$verificar = "SELECT email FROM usuarios WHERE email = '$email'";
 
-$resultado = PDO_query($conexao, $verificar);
-	if($dados=PDO_fetch_assoc($resultado)){
-		echo $email."<br/>";
-		echo "Usuário já cadastrado.";		
-		} else {
+$stmt = $pdo->prepare ('INSERT INTO usuarios (login,email,senha,csenha,nome,dtn,sexo,snome,tel,uf,cpf,cep,cid,ende) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
-$verificar = "SELECT cpf FROM usuarios WHERE cpf = '$cpf'";
-
-$resultado = PDO_query($conexao, $verificar);
-	if($dados=PDO_fetch_assoc($resultado)){
-		echo $cpf."<br/>";
-		echo "Usuário já cadastrado.";		
-		} else {
-
-
-
-
+$stmt->bindParam(1,$login,PDO::PARAM_STR);
+$stmt->bindParam(2,$email,PDO::PARAM_STR);
+$stmt->bindParam(3,$senha,PDO::PARAM_STR);
+$stmt->bindParam(4,$csenha,PDO::PARAM_STR);
+$stmt->bindParam(5,$nome,PDO::PARAM_STR);
+$stmt->bindParam(6,$dtn,PDO::PARAM_STR);
+$stmt->bindParam(7,$sexo,PDO::PARAM_STR);
+$stmt->bindParam(8,$snome,PDO::PARAM_STR);
+$stmt->bindParam(9,$tel,PDO::PARAM_STR);
+$stmt->bindParam(10,$uf,PDO::PARAM_STR);
+$stmt->bindParam(11,$cpf,PDO::PARAM_STR);
+$stmt->bindParam(12,$cep,PDO::PARAM_STR);
+$stmt->bindParam(13,$cid,PDO::PARAM_STR);
+$stmt->bindParam(14,$ende,PDO::PARAM_STR);
 
 
-// Montar as cláusulas(instruções) MySql/Sql para envio dos dados.
-
-$conn->exec= "INSERT INTO usuarios(login,email,senha,csenha,nome,dtn,sexo,snome,tel,uf,cpf,cep,cid,ende) values ('$login','$email','$senha','$csenha','$nome','$dtn','$sexo','$snome','$tel','$uf','$cpf','$cep','$cid','$ende')";
-
-//Enviar os dados para a tabela
-
-$enviar = PDO_query($conexao, $inserir);
-
-//Verificar se usuários foi cadastrado
-
-if($enviar){
-	echo "Usuário cadastrado com sucesso.";
+if ($stmt->execute()){
+header('refresh:0;url=index.php',true,303);
+?>
+<script  type="text/javascript" language="javascript1.5">
+	alert("Usuário cadastrado.")
+	</script>
+<?php
 } else {
-	echo "Usuário não cadastrado.";
-}
-}
+	?>
+<script  type="text/javascript" language="javascript1.5">
+	alert("Usuário não cadastrado.")
+	</script>
+<?php
 }
 
 ?>
+
+
+
+
 
 
 					

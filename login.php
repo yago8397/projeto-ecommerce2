@@ -19,6 +19,6 @@ if($alvos = $stmt->fetchAll()){
 	alert("Login ou Senha Inválidos!")
 	</script>
 <?php
-	header('refresh:0;url=http://localhost/ProjetoFinal/projeto-ecommerce2/',true,303);
+	header('refresh:0;url=index.php',true,303);
 }
 ?>

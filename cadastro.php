@@ -1,7 +1,3 @@
-<?php
-include "conexao.php";
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -96,7 +92,7 @@ include "conexao.php";
 					
 					<h5 class=" row card-header bg-info mb-2">Faça o seu Cadastro:</h5>
 
-					<form id="form_usuarios" method="post" action="cadas.php">
+					<form  method="post" action="cadas.php">
 
 					<div class="row">
 
@@ -131,7 +127,7 @@ include "conexao.php";
 				    </div>				    
 				    <div class="form-group col-md-4">
 				    <label id="dtn">Data de Nasc.:</label>
-				    <input required type="date" class="form-control" name="dtn" placeholder="">
+				    <input required type="text" class="form-control" name="dtn" placeholder="">
 				    </div>
 				    <div class="form-group col-md-2">
 					<label id="sexo">Sexo:</label>
