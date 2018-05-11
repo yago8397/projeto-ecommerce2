@@ -16,7 +16,7 @@ if($alvos = $stmt->fetchAll()){
 } else{
 ?>
 <script  type="text/javascript" language="javascript1.5">
-	alert("Login ou Senha Inválidos!")
+	alert("Login ou senha inválidos!")
 	</script>
 <?php
 	header('refresh:0;url=index.php',true,303);

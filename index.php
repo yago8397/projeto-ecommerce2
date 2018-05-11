@@ -25,8 +25,8 @@ include "conexao.php";
 	      				</figure>
 					</div>
 		      		<div class="col-md-8 mt-3" >
-		      			<form >
-		        		<input class="form-control mr-sm-2 " action="procurar.php"	 type="search" placeholder="Qual produto está procurando?" aria-label="Search">	
+		      			<form  action="procurar.php" method="post">
+		        		<input name="busca" id="busca" class="form-control mr-sm-2 " type="text" placeholder="Qual produto está procurando?" aria-label="Search">	
 		      			</form>
 		      		</div>		      		
 <?php 
@@ -54,7 +54,9 @@ else{
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
 		      		</div>
 		      		</div>
-<?php } ?>
+<?php
+}
+?>
 				</div>
 			</header>			
 			
@@ -173,7 +175,9 @@ if($alvos = $stmt->fetchAll()){
 					</div>
 					</div>
 				</div>
-<?php } ?>					
+<?php
+}
+?>					
 			</section>
 
 			<footer>

@@ -43,6 +43,7 @@ header('refresh:0;url=index.php',true,303);
 	</script>
 <?php
 } else {
+header('refresh:0;url=index.php',true,303);
 	?>
 <script  type="text/javascript" language="javascript1.5">
 	alert("Usuário não cadastrado.")
