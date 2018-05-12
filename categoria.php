@@ -50,18 +50,15 @@ else{
 		      		<div class="w-50 h-25 mt-1">
 		      			<a class="btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
 		      		</div>		      				      		
-		      		<div class="w-50 h-25 mt-2 ">
+		      		<div class="w-50 h-25 mt-3 ">
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
-		      		</div>
-		      		<div class="w-50 h-25 mt-2">
-		      		<a href="" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
 		      		</div>
 		      		</div>
 <?php
 }
-?>									
-				</div>				
-			</header>				
+?>
+				</div>
+			</header>			
 			
 			<nav>		
 				<div class="row col-md-10 offset-md-1">				
@@ -92,9 +89,11 @@ else{
 	        		<img class="img-fluid"  src="imagens/gif.gif" alt="Banner da empresa" />
 	      			</figure>
 				</div>
-
 <?php 
-$stmt = $pdo->prepare('SELECT * FROM produtos');
+$tipo = $_GET['categoria'];
+
+$stmt = $pdo->prepare('SELECT * FROM produtos WHERE tipo = ?');
+$stmt->bindParam(1, $tipo, PDO::PARAM_STR);
 $stmt->execute();
 if($alvos = $stmt->fetchAll()){
  ?>
@@ -112,9 +111,7 @@ if($alvos = $stmt->fetchAll()){
 					</div>					
 					<div class="row p-3 m-0">
 					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
-					<form action="start_carrinho.php" method="post">
-					<button class="btn btn-info p-1">Comprar</button>
-					</form>
+					<a href="#" class="btn btn-info p-1">Comprar</a>
 					</div>
 					</div>
 					</div>
@@ -130,9 +127,7 @@ if($alvos = $stmt->fetchAll()){
 					</div>
 					<div class="row p-3 m-0">
 					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
-					<form action="start_carrinho.php" method="post">
-					<button class="btn btn-info p-1">Comprar</button>
-					</form>
+					<a href="#" class="btn btn-info p-1">Comprar</a>
 					</div>
 					</div>					
 					</div>
@@ -149,9 +144,7 @@ if($alvos = $stmt->fetchAll()){
 					</div>					
 					<div class="row p-3 m-0">
 					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
-					<form action="start_carrinho.php" method="post">
-					<button class="btn btn-info p-1">Comprar</button>
-					</form>
+					<a href="#" class="btn btn-info p-1">Comprar</a>
 					</div>
 					</div>
 					</div>
