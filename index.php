@@ -37,9 +37,9 @@ if (isset($_SESSION['nome'])){
 		      		<p class="">Ola, <a href=""><?php echo $_SESSION['nome'];?></a><br>Seja Bem-Vindo!</p>
 		      		
 		      		  		      		
-		      		<a href="" class="btn btn btn-info btn-sm "><i class="fas fa-cart-plus"></i></a>
+		      		<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
 		      		<a href="desloga.php" class="btn btn btn-info btn-sm"><i class="fas fa-sign-out-alt"></i></a>
-		      		
+
 
 		      		</div>		      										
 <?php
@@ -54,7 +54,7 @@ else{
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
 		      		</div>
 		      		<div class="w-50 h-25 mt-2">
-		      		<a href="" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
+		      		<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
 		      		</div>
 		      		</div>
 <?php
@@ -114,6 +114,10 @@ if($alvos = $stmt->fetchAll()){
 					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
 					<form action="start_carrinho.php" method="post">
 					<button class="btn btn-info p-1">Comprar</button>
+						<input type="hidden" name="img" value="<?php echo $alvos[0]['img']; ?>">
+						<input type="hidden" name="nome" value="<?php echo $alvos[0]['nome'] ;?>">
+						<input type="hidden" name="desc" value="<?php echo $alvos[0]['desc']; ?>">
+						<input type="hidden" name="preco" value="<?php echo "R$ ".$alvos[0]['preco']; ?>">
 					</form>
 					</div>
 					</div>
@@ -132,6 +136,10 @@ if($alvos = $stmt->fetchAll()){
 					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
 					<form action="start_carrinho.php" method="post">
 					<button class="btn btn-info p-1">Comprar</button>
+						<input type="hidden" name="img" value="<?php echo $alvos[1]['img']; ?>">
+						<input type="hidden" name="nome" value="<?php echo $alvos[1]['nome'] ;?>">
+						<input type="hidden" name="desc" value="<?php echo $alvos[1]['desc']; ?>">
+						<input type="hidden" name="preco" value="<?php echo "R$ ".$alvos[1]['preco']; ?>">
 					</form>
 					</div>
 					</div>					
@@ -151,6 +159,10 @@ if($alvos = $stmt->fetchAll()){
 					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
 					<form action="start_carrinho.php" method="post">
 					<button class="btn btn-info p-1">Comprar</button>
+						<input type="hidden" name="img" value="<?php echo $alvos[2]['img']; ?>">
+						<input type="hidden" name="nome" value="<?php echo $alvos[2]['nome'] ;?>">
+						<input type="hidden" name="desc" value="<?php echo $alvos[2]['desc']; ?>">
+						<input type="hidden" name="preco" value="<?php echo "R$ ".$alvos[2]['preco']; ?>">
 					</form>
 					</div>
 					</div>

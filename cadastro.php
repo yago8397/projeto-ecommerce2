@@ -32,6 +32,9 @@
 		      		<div class="w-50 h-25 mt-3 ">
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
 		      		</div>
+		      		<div class="w-50 h-25 mt-2">
+		      		<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
+		      		</div>
 		      		</div>
 				</div>
 			</header>			
@@ -42,47 +45,19 @@
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
-	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php">Início</a>
+	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php" >Início</a>
 					</li>
+					<li class="nav-item mr-1">
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=informatica">Informática e Telefonia</a>
+					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Informática e Telefonia</a>
-					<div class="dropdown-menu bg-secondary">
-					<a class="dropdown-item" href="#">Celulares</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Tablets</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Pc Gaming</a>								
-					</div>
-
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=eletrodomestico">Eletrodomésticos</a>
+					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Eletrodomésticos</a>
-					<div class="dropdown-menu bg-secondary">
-					<a class="dropdown-item" href="#">Tv's</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Ar condicionado</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Áudio</a>								
-					</div>
-
-					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Móveis e Decoração</a>
-					<div class="dropdown-menu bg-secondary">
-					<a class="dropdown-item" href="#">Sala</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Cozinha</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Banheiro</a>								
-					</div>
-
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=decoracao">Móveis e Decoração</a>
+					
 					<li class="nav-item dropdown ">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Outros</a>
-					<div class="dropdown-menu bg-secondary">
-					<a class="dropdown-item" href="#">Jogos</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Filmes</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Livros</a>								
-					</div>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=entretenimento">Entretenimento</a>
 					</ul>																
 				</div>
 			</nav>			

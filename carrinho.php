@@ -35,12 +35,9 @@ if (isset($_SESSION['nome'])){
 					<div class="col-md-2 mt-1 mb-1 text-dark">
 					
 		      		<p class="">Ola, <a href=""><?php echo $_SESSION['nome'];?></a><br>Seja Bem-Vindo!</p>
-		      		
-		      		  		      		
-		      		<a href="" class="btn btn btn-info btn-sm "><i class="fas fa-cart-plus"></i></a>
+		      				      		
+		      		<a href="acaocarrinho.php?acao=esvaziar" class="btn btn btn-info btn-sm"><i class="fas fa-times-circle"></i></a>
 		      		<a href="desloga.php" class="btn btn btn-info btn-sm"><i class="fas fa-sign-out-alt"></i></a>
-		      		
-
 		      		</div>		      										
 <?php
 }
@@ -50,15 +47,19 @@ else{
 		      		<div class="w-50 h-25 mt-1">
 		      			<a class="btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
 		      		</div>		      				      		
-		      		<div class="w-50 h-25 mt-3 ">
+		      		<div class="w-50 h-25 mt-2 ">
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
+		      		</div>
+		      		<div class="w-50 h-25 mt-2">
+		      		<a href="acaocarrinho.php?acao=esvaziar" class="btn btn btn-info btn-sm"><i class="fas fa-times-circle"></i></a>
+		      		<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
 		      		</div>
 		      		</div>
 <?php
- } 
- ?>
-				</div>
-			</header>			
+}
+?>									
+				</div>				
+			</header>				
 			
 			<nav>		
 				<div class="row col-md-10 offset-md-1">				
@@ -68,83 +69,43 @@ else{
 	  				<li class="nav-item mr-1">
 	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php" >Início</a>
 					</li>
+					<li class="nav-item mr-1">
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=informatica">Informática e Telefonia</a>
+					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Informática e Telefonia</a>
-					<div class="dropdown-menu bg-secondary">
-					<a class="dropdown-item" href="#">Celulares</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Tablets</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Pc Gaming</a>								
-					</div>
-
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=eletrodomestico">Eletrodomésticos</a>
+					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Eletrodomésticos</a>
-					<div class="dropdown-menu bg-secondary">
-					<a class="dropdown-item" href="#">Tv's</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Ar condicionado</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Áudio</a>								
-					</div>
-
-					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Móveis e Decoração</a>
-					<div class="dropdown-menu bg-secondary">
-					<a class="dropdown-item" href="#">Sala</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Cozinha</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Banheiro</a>								
-					</div>
-
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=decoracao">Móveis e Decoração</a>
+					
 					<li class="nav-item dropdown ">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Outros</a>
-					<div class="dropdown-menu bg-secondary">
-					<a class="dropdown-item" href="#">Jogos</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Filmes</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Livros</a>								
-					</div>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=entretenimento">Entretenimento</a>
 					</ul>																
 				</div>
 			</nav>			
 
 			<section>
-				<div class="col-md-6 offset-md-3">
-					<figure class="figure mt-2 mb-2">
-	        		<img class="img-fluid"  src="imagens/gif.gif" alt="Banner da empresa" />
-	      			</figure>
-				</div>
-				<div class="row col-md-12 ">
+				
+				<div class="row col-md-12 mt-3">
 <?php 
-$busca = $_POST['busca'];
-
-$stmt = $pdo->prepare('SELECT * FROM produtos WHERE nome OR tipo LIKE ?');
-$stmt->bindValue(1,'%'.$busca.'%');
-$stmt->execute();
-$result = $stmt->fetchAll();
-foreach ($result as $alvos)
-{
-?>
-
+if (!isset($_SESSION['carrinho'])) {
+		$_SESSION['carrinho']= []; 
+	}	
+	foreach($_SESSION['carrinho'] as $td){	
+ ?>
 					<div class="col-md-4">
 
 					<div class="card h-100 w-auto" >
-					<img class="card-img-top p-3" src=<?php echo $alvos['img']; ?> alt="Card image cap">
+					<img class="card-img-top p-3" src=<?php echo $td[0];?> alt="Card image cap">
 					<div class="card-body bg-info">
-					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos['nome'] ;?></h5>
-					<p class="card-text text-center h-100 w-auto"><?php echo $alvos['desc']; ?></p>
-					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos['preco']; ?></p>
-					</div>					
-					<div class="row p-3 m-0">
-					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
-					<a href="#" class="btn btn-info p-1">Comprar</a>
-					</div>
+					<h5 class="card-title text-center h-100 w-auto"><?php echo $td[1];?></h5>
+					<p class="card-text text-center h-100 w-auto"><?php echo $td[2]; ?></p>
+					<p class="card-text text-center h-100 w-auto"><?php echo $td[3]; ?></p>
+					</div>			
+					
 					</div>
 					</div>					
-<?php 
+<?php
 }
 ?>					
 				</div>
