@@ -1,47 +1,68 @@
+<?php
+session_start();
+include "conexao.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="css/bootstrap.css" >
-		<link rel="stylesheet" type="text/css" href="estilo.css">		
+		<link rel="stylesheet" href="css/bootstrap.css">					
 		<title>Gaia Shopping</title>
 	</head>
 	<body>
-		<div class="container">	
+		<div class="container-fluid">	
 
 			<header>
 				<div class="row border border-info rounded" style="background-color: #BDBDBD">
 
-					<div class="col-md-2 mt-2">
+					<div class="col-md-2  col-xl-2 mt-2 ">
 						<figure class="figure">
 						<a href="index.php">
-	        			<img class="img-fluid" src="imagens/logo.png" alt="Logo da empresa"/>
+	        			<img class="img-fluid " src="imagens/logo.png" alt="Logo da empresa"/>
 	        			</a>
-	      				</figure>	      				
+	      				</figure>
 					</div>
-		      		<div class="col-md-8 mt-3" >
-		      			<form >
-		        		<input class="form-control mr-sm-2 " type="search" placeholder="Qual produto está procurando?" aria-label="Search">	
+		      		<div class="col-md-7 col-xl-8 mt-3" >
+		      			<form  action="procurar.php" method="post">
+		        		<input name="busca" id="busca" class="form-control mr-sm-2 " type="text" placeholder="Qual produto está procurando?" aria-label="Search">	
 		      			</form>
-		      		</div>
-		      		<div class="col-md-2">
-		      		<div class="w-50 h-25 mt-1">
-		      			<a class="btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
+		      		</div>		      		
+<?php 
+if (isset($_SESSION['logar'])){
+?>					
+					<div class="col-md-3 col-xl-2 mt-1 mb-1 text-black ">
+					
+		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logar'];?></a><br>Seja Bem-Vindo!</p>		      		
+		      		  		      		
+		      		<a href="carrinho.php" class="btn btn btn-info btn-sm m-1"><i class="fas fa-cart-plus"></i></a>
+		      		<a href="desloga.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
+
+
+		      		</div>		      										
+<?php
+}
+else{
+?>
+					<div class="col-md-3 col-xl-2 mt-1 mb-1 ">
+		      		<div class="row m-1">
+		      			<a class="btn btn btn-info btn-sm mr-1" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
+		      			<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
 		      		</div>		      				      		
-		      		<div class="w-50 h-25 mt-3 ">
+		      		<div class="row m-1 ">
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
 		      		</div>
-		      		<div class="w-50 h-25 mt-2">
-		      		<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
+		      		
 		      		</div>
-		      		</div>
-				</div>
-			</header>			
+<?php
+}
+?>									
+				</div>				
+			</header>				
 			
 			<nav>		
-				<div class="row col-md-10 offset-md-1">				
-				<div class="col-md-2"></div>
+				<div class="row col-md-10 offset-md-1 col-xl-6 offset-xl-3">
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
@@ -122,7 +143,7 @@
 				    </div>				    
 					<div class="form-group col-md-3">
 				    <label id="tel">Tel.:</label>
-				    <input required type="text" class="form-control" name="tel" placeholder="FALTA MASCARA">
+				    <input required type="text" class="form-control" name="tel" placeholder="">
 				    </div>
 				    <div class="form-group col-md-2">
 					<label id="uf">UF:</label>
@@ -140,11 +161,11 @@
 									    
 				    <div class="form-group col-md-4">
 				    <label id="cpf">CPF:</label>
-				    <input required type="text" class="form-control" name="cpf" placeholder="FALTA MASCARA">
+				    <input required type="text" class="form-control" name="cpf" placeholder="">
 				    </div>
 				    <div class="form-group col-md-4">
 				    <label id="cep">CEP:</label>
-				    <input required type="text" class="form-control" name="cep" placeholder="FALTA MASCARA">
+				    <input required type="text" class="form-control" name="cep" placeholder="">
 				    </div>
 				    <div class="form-group col-md-4">
 				    <label id="cid">Cidade:</label>
@@ -166,19 +187,15 @@
 				</div>								
 			</section>
 
-			<footer>
-				<div class="row">
-					<div class="col-md-12 mt-1">
-						<h5 class="card-header bg-info">GaiaShopping</h5>
-						<div class="card-body" style="background-color: #BDBDBD">
-						<div class="dropdown-divider"></div>					
-						<p class="card-text text-center">Todas as regras e promoções são válidas apenas para produtos vendidos e entregues pela gaiashop.com.<br>				
-						Av. das Américas, 4666 <br> Barra da Tijuca, Rio de Janeiro - RJ, 22640-102</p>
-						<div class="dropdown-divider"></div>						
-						<a href="#" class="btn btn-info col-md-4 offset-md-4">Voltar ao topo</a>
-						</div>
+			<footer>				
+					<h5 class="text-info mt-3">GaiaShopping</h5>					
+					<div class="row border border-info rounded " style="background-color: #BDBDBD">
+					<div class="col-md-10 offset-md-1 col-xl-10 offset-xl-1 text-black">											
+					<p class="text-center">Todas as regras e promoções são válidas apenas para produtos vendidos e entregues pela gaiashop.com.<br>				
+					Av. das Américas, 4666 <br> Barra da Tijuca, Rio de Janeiro - RJ, 22640-102</p>
+					<a href="#" class="btn btn-info col-md-4 offset-md-4  mb-2">Voltar ao topo</a>
 					</div>
-				</div>
+					</div>								
 			</footer>
 
 

@@ -12,33 +12,32 @@ include "conexao.php";
 		<title>Gaia Shopping</title>
 	</head>
 	<body>
-		<div class="container">	
+		<div class="container-fluid">	
 
 			<header>
 				<div class="row border border-info rounded" style="background-color: #BDBDBD">
 
-					<div class="col-md-2 mt-2 ">
+					<div class="col-md-2  col-xl-2 mt-2 ">
 						<figure class="figure">
 						<a href="index.php">
 	        			<img class="img-fluid " src="imagens/logo.png" alt="Logo da empresa"/>
 	        			</a>
 	      				</figure>
 					</div>
-		      		<div class="col-md-8 mt-3" >
+		      		<div class="col-md-7 col-xl-8 mt-3" >
 		      			<form  action="procurar.php" method="post">
 		        		<input name="busca" id="busca" class="form-control mr-sm-2 " type="text" placeholder="Qual produto está procurando?" aria-label="Search">	
 		      			</form>
 		      		</div>		      		
 <?php 
-if (isset($_SESSION['nome'])){
+if (isset($_SESSION['logar'])){
 ?>					
-					<div class="col-md-2 mt-1 mb-1 text-dark">
+					<div class="col-md-3 col-xl-2 mt-1 mb-1 text-black ">
 					
-		      		<p class="">Ola, <a href=""><?php echo $_SESSION['nome'];?></a><br>Seja Bem-Vindo!</p>
-		      		
+		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logar'];?></a><br>Seja Bem-Vindo!</p>		      		
 		      		  		      		
-		      		<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
-		      		<a href="desloga.php" class="btn btn btn-info btn-sm"><i class="fas fa-sign-out-alt"></i></a>
+		      		<a href="carrinho.php" class="btn btn btn-info btn-sm m-1"><i class="fas fa-cart-plus"></i></a>
+		      		<a href="desloga.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
 
 
 		      		</div>		      										
@@ -46,16 +45,15 @@ if (isset($_SESSION['nome'])){
 }
 else{
 ?>
-					<div class="col-md-2">
-		      		<div class="w-50 h-25 mt-1">
-		      			<a class="btn btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
+					<div class="col-md-3 col-xl-2 mt-1 mb-1 ">
+		      		<div class="row m-1">
+		      			<a class="btn btn btn-info btn-sm mr-1" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
+		      			<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
 		      		</div>		      				      		
-		      		<div class="w-50 h-25 mt-2 ">
+		      		<div class="row m-1 ">
 		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
 		      		</div>
-		      		<div class="w-50 h-25 mt-2">
-		      		<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
-		      		</div>
+		      		
 		      		</div>
 <?php
 }
@@ -64,8 +62,7 @@ else{
 			</header>				
 			
 			<nav>		
-				<div class="row col-md-10 offset-md-1">				
-				<div class="col-md-2"></div>
+				<div class="row col-md-10 offset-md-1 col-xl-6 offset-xl-3">
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
@@ -99,9 +96,9 @@ $stmt->execute();
 if($alvos = $stmt->fetchAll()){
  ?>
 
-				<div class="row col-md-12 ">
+				<div class="row col-md-12 col-xl-8 offset-xl-2 mt-3">
 
-					<div class="col-md-4">
+					<div class="col-md-4 col-xl-4">
 
 					<div class="card h-100 w-auto" >
 					<img class="card-img-top p-3" src=<?php echo $alvos[0]['img']; ?> alt="Card image cap">
@@ -123,7 +120,7 @@ if($alvos = $stmt->fetchAll()){
 					</div>
 					</div>
 
-					<div class="col-md-4">
+					<div class="col-md-4 col-xl-4">
 
 					<div class="card h-100 w-auto" >
 					<img class="card-img-top p-3" src=<?php echo $alvos[1]['img']; ?> alt="Card image cap">
@@ -146,7 +143,7 @@ if($alvos = $stmt->fetchAll()){
 					</div>
 
 
-					<div class="col-md-4">
+					<div class="col-md-4 col-xl-4">
 
 					<div class="card h-100 w-auto" >
 					<img class="card-img-top p-3" src=<?php echo $alvos[2]['img']; ?> alt="Card image cap">
@@ -173,19 +170,15 @@ if($alvos = $stmt->fetchAll()){
 ?>					
 			</section>
 
-			<footer>
-				<div class="row">
-					<div class="col-md-12 mt-1">
-						<h5 class="card-header bg-info">GaiaShopping</h5>
-						<div class="card-body" style="background-color: #BDBDBD">
-						<div class="dropdown-divider"></div>					
-						<p class="card-text text-center">Todas as regras e promoções são válidas apenas para produtos vendidos e entregues pela gaiashop.com.<br>				
-						Av. das Américas, 4666 <br> Barra da Tijuca, Rio de Janeiro - RJ, 22640-102</p>
-						<div class="dropdown-divider"></div>						
-						<a href="#" class="btn btn-info col-md-4 offset-md-4">Voltar ao topo</a>
-						</div>
+			<footer>				
+					<h5 class="text-info mt-3">GaiaShopping</h5>					
+					<div class="row border border-info rounded " style="background-color: #BDBDBD">
+					<div class="col-md-10 offset-md-1 col-xl-10 offset-xl-1 text-black">											
+					<p class="text-center">Todas as regras e promoções são válidas apenas para produtos vendidos e entregues pela gaiashop.com.<br>				
+					Av. das Américas, 4666 <br> Barra da Tijuca, Rio de Janeiro - RJ, 22640-102</p>
+					<a href="#" class="btn btn-info col-md-4 offset-md-4  mb-2">Voltar ao topo</a>
 					</div>
-				</div>
+					</div>								
 			</footer>
 
 

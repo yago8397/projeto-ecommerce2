@@ -11,7 +11,7 @@ $stmt->bindParam(1, $login, PDO::PARAM_STR);
 $stmt->bindParam(2, $senha,PDO::PARAM_STR);
 $stmt->execute();
 if($alvos = $stmt->fetchAll()){	
-	$_SESSION['nome'] = $alvos[0]['nome'];
+	$_SESSION['logar'] = $alvos[0]['nome'];
 	header('location: index.php');
 } else{
 ?>
