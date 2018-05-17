@@ -175,10 +175,16 @@ else{
 
 				    <div class="row">
 
-				   	<div class="form-group col-md-12">
+				   	<div class="form-group col-md-10">
 				    <label id="ende">End.:</label>
 				    <input required type="text" class="form-control" name="ende" placeholder="Digite o Endereço">
-				    </div>				    
+				    </div>
+				    <div class="form-group col-md-2">
+					<label id="tipo">Tipo de Usuário:</label>
+					<select name="tipo" class="form-control">
+					<option selected>Cliente</option>										
+					</select>
+					</div>				    
 				    </div>
 				   
 					<button class="btn btn-info col-md-4 offset-md-4" type="submit">Cadastrar</button>

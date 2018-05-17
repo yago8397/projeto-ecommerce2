@@ -90,6 +90,7 @@ else{
 if (!isset($_SESSION['carrinho'])) {
 		$_SESSION['carrinho']= []; 
 	}	
+	$totalc = 0;
 	foreach($_SESSION['carrinho'] as $td){	
  ?>
 					<div class="row col-xl-10 offset-xl-1">
@@ -113,13 +114,14 @@ if (!isset($_SESSION['carrinho'])) {
 
 					<table>
 					<tr>
-					<td><font face=’Arial’ size=’2′>Preço: <?php echo $td[3]; ?></font></td>
+					<td><font face=’Arial’ size=’2′>Preço: <?php echo "R$ ".$td[3]; ?></font></td>
 					</tr>	
 					</table>									
 					</div>									
 					</div>	
 					<div class="dropdown-divider"></div>	
 <?php
+$totalc = $totalc + $td[3];
 }
 ?>					
 					
@@ -133,23 +135,37 @@ if (!isset($_SESSION['carrinho'])) {
 					</table>					
 					</div>
 
-					<div class="col-md-8">
+					<div class="col-md-8 row">
+					
 					<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
 					<tr>
-					<td><font face=’Arial’ size=’2′>R$:</font></td>
+					<td><font face=’Arial’ size=’2′>R$:<?php echo $totalc;?></font></td>
 					</tr>
-					</table>					
+					</table>
+					
+					<form action="finalizarc.php" method="post">
+					<div class="form-group col-md-5">
+					<label id="total">Forma de Pagamento:</label>
+					<select name="total" class="form-control">
+					<option disabled selected>-</option>
+					<option value="<?php echo $totalc ?>"><?php echo number_format((float)$totalc, 2, '.', '');?> à vista.</option>
+					<option value="<?php echo $totalc ?>">10x de <?php echo number_format((float)$totalc/10, 2, '.', '');?> sem juros.</option>
+					<option value="<?php echo $totalc*1.1 ?>">12x de <?php echo number_format((float)$totalc/12*1.1, 2, '.', '');?> com 10% juros.</option>
+					</select>
 					</div>
 
 
-					<div class="col-md-2">
-					<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-					<tr>
-					<td><a href="acaocarrinho.php?acao=esvaziar" class="btn btn btn-info btn-sm"><i class="fas fa-times-circle"></i></a></td>
-					</tr>
-					</table>					
+					<div class="col">
+					
+					<a class="nav-link btn btn btn-dark btn-sm bg-danger p-1 m-1" href="acaocarrinho.php?acao=esvaziar" >Esvaziar Carrinho</a>
+															
+	    			<a type="submit" class="nav-link btn btn btn-dark btn-sm bg-info p-1 m-1" href="" >Finalizar Compra</a>
+					</div>
+					</form>					
+					</div>
+						
 					</div>					
-					</div>
+					
 
 					
 					

@@ -115,7 +115,7 @@ if($result = $stmt->fetchAll())
 					<input type="hidden" name="img" value="<?php echo $alvos[0]['img']; ?>">
 					<input type="hidden" name="nome" value="<?php echo $alvos[0]['nome'] ;?>">
 					<input type="hidden" name="desc" value="<?php echo $alvos[0]['desc']; ?>">
-					<input type="hidden" name="preco" value="<?php echo "R$ ".$alvos[0]['preco']; ?>">
+					<input type="hidden" name="preco" value="<?php echo $alvos[0]['preco']; ?>">
 					</form>
 					</div>
 					</div>

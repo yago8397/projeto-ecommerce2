@@ -6,7 +6,7 @@
 	$img = $_POST['img'];
 	$nome = $_POST['nome'];
 	$desc = $_POST['desc'];
-	$preco = $_POST['preco'];
+	$preco = $_POST['preco'];	
 
 	$td = [$img,$nome,$desc,$preco]; 
 

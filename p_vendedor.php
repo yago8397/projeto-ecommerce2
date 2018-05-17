@@ -30,11 +30,11 @@ include "conexao.php";
 		      			</form>
 		      		</div>		      		
 <?php 
-if (isset($_SESSION['logar'])){
+if (isset($_SESSION['logarv'])){
 ?>					
 					<div class="col-md-3 col-xl-2 mt-1 mb-1 text-black ">
 					
-		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logar'];?></a><br>Seja Bem-Vindo!</p>		      		
+		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logarv'];?></a><br>Seja Bem-Vindo!</p>		      		
 		      		  		      		
 		      		<a href="carrinho.php" class="btn btn btn-info btn-sm m-1"><i class="fas fa-cart-plus"></i></a>
 		      		<a href="desloga.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
@@ -66,7 +66,7 @@ else{
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
-	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php" >Início</a>
+	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="p_vendedor.php" >Início</a>
 					</li>
 					<li class="nav-item mr-1">
 					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=informatica">Informática e Telefonia</a>
@@ -84,43 +84,7 @@ else{
 			</nav>			
 
 			<section>
-
-				<div class="row col-md-12 col-xl-8 offset-xl-2 mt-3">				
-<?php 
-$tipo = $_GET['categoria'];
-
-$stmt = $pdo->prepare('SELECT * FROM produtos WHERE tipo = ?');
-$stmt->bindParam(1, $tipo, PDO::PARAM_STR);
-$stmt->execute();
-if($result = $stmt->fetchAll())
-	foreach ($result as $alvos){
- ?>
-
-					<div class="col-md-4 col-xl-4">
-
-					<div class="card h-100 w-auto" >
-						
-					<img class="card-img-top p-3" src=<?php echo $alvos['img']; ?> alt="Card image cap">
-					<div class="card-body bg-info">
-					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos['nome'] ;?></h5>
-					<p class="card-text text-center h-100 w-auto"><?php echo $alvos['desc']; ?></p>
-					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos['preco']; ?></p>
-					</div>					
-					<div class="row p-3 m-0">
-					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
-					<form action="start_carrinho.php" method="post">
-					<button class="btn btn-info p-1">Comprar</button>
-					<input type="hidden" name="img" value="<?php echo $alvos['img']; ?>">
-					<input type="hidden" name="nome" value="<?php echo $alvos['nome'] ;?>">
-					<input type="hidden" name="desc" value="<?php echo $alvos['desc']; ?>">
-					<input type="hidden" name="preco" value="<?php echo $alvos['preco']; ?>">
-					</form>
-					</div>
-					</div>
-					</div>
-<?php
-}
-?>				</div>	
+				
 			</section>
 
 			<footer>				

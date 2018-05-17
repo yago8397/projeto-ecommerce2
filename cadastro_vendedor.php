@@ -84,43 +84,113 @@ else{
 			</nav>			
 
 			<section>
+				<div class="col-md col-xl-8 offset-xl-2 mt-2 mb-2 p-3 border border-info rounded" style="background-color: #BDBDBD">
+					
+					<h5 class=" row card-header bg-info mb-2">Cadastro do Vendedor:</h5>
 
-				<div class="row col-md-12 col-xl-8 offset-xl-2 mt-3">				
-<?php 
-$tipo = $_GET['categoria'];
+					<form  method="post" action="cadas.php">
 
-$stmt = $pdo->prepare('SELECT * FROM produtos WHERE tipo = ?');
-$stmt->bindParam(1, $tipo, PDO::PARAM_STR);
-$stmt->execute();
-if($result = $stmt->fetchAll())
-	foreach ($result as $alvos){
- ?>
+					<div class="row">
 
-					<div class="col-md-4 col-xl-4">
+					<div class="form-group col-md-4">
+				    <label id="login">Login:</label>
+				    <input required type="text" class="form-control" name="login" placeholder="Digite o Login">
+				    </div>
+				    <div class="form-group col-md-8">
+				    <label id="email">Email:</label>
+				    <input required type="email" class="form-control" name="email" placeholder="Digite o email">
+				    </div>				    				    
+					</div>				    
+					
 
-					<div class="card h-100 w-auto" >
-						
-					<img class="card-img-top p-3" src=<?php echo $alvos['img']; ?> alt="Card image cap">
-					<div class="card-body bg-info">
-					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos['nome'] ;?></h5>
-					<p class="card-text text-center h-100 w-auto"><?php echo $alvos['desc']; ?></p>
-					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos['preco']; ?></p>
-					</div>					
-					<div class="row p-3 m-0">
-					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
-					<form action="start_carrinho.php" method="post">
-					<button class="btn btn-info p-1">Comprar</button>
-					<input type="hidden" name="img" value="<?php echo $alvos['img']; ?>">
-					<input type="hidden" name="nome" value="<?php echo $alvos['nome'] ;?>">
-					<input type="hidden" name="desc" value="<?php echo $alvos['desc']; ?>">
-					<input type="hidden" name="preco" value="<?php echo $alvos['preco']; ?>">
+					<div class="row">
+
+				    <div class="form-group col-md-6">
+				    <label id="senha">Senha:</label>
+				    <input required type="password" class="form-control" name="senha" placeholder="Digite a senha">
+				    </div>
+				    <div class="form-group col-md-6">
+				    <label id="csenha">Comfirmar Senha:</label>
+				    <input required type="password" class="form-control" name="csenha" placeholder="Comfirmar senha">
+				    </div>
+					</div>
+
+					<div class="row">
+
+				    <div class="form-group col-md-6">
+				    <label id="nome">Nome:</label>
+				    <input required type="text" class="form-control" name="nome" placeholder="Digite o nome">
+				    </div>				    
+				    <div class="form-group col-md-4">
+				    <label id="dtn">Data de Nasc.:</label>
+				    <input required type="text" class="form-control" name="dtn" placeholder="">
+				    </div>
+				    <div class="form-group col-md-2">
+					<label id="sexo">Sexo:</label>
+					<select name="sexo" class="form-control">
+					<option disabled selected>-</option>
+					<option>M</option>
+					<option>F</option>
+					</select>
+					</div>				    				    
+					</div>  
+
+					<div class="row">
+
+					<div class="form-group col-md-6">
+				    <label id="snome">Sobrenome:</label>
+				    <input required type="text" class="form-control" name="snome" placeholder="Digite o Sobrenome">
+				    </div>				    
+					<div class="form-group col-md-3">
+				    <label id="tel">Tel.:</label>
+				    <input required type="text" class="form-control" name="tel" placeholder="">
+				    </div>
+				    <div class="form-group col-md-2">
+					<label id="uf">UF:</label>
+					<select name="uf" class="form-control">
+					<option disabled selected>-</option>
+					<option>RJ</option>
+					<option>SP</option>
+					<option>MG</option>
+					<option>ES</option>
+					</select>
+					</div>				   
+					</div>
+
+					<div class="row">					
+									    
+				    <div class="form-group col-md-4">
+				    <label id="cpf">CPF:</label>
+				    <input required type="text" class="form-control" name="cpf" placeholder="">
+				    </div>
+				    <div class="form-group col-md-4">
+				    <label id="cep">CEP:</label>
+				    <input required type="text" class="form-control" name="cep" placeholder="">
+				    </div>
+				    <div class="form-group col-md-4">
+				    <label id="cid">Cidade:</label>
+				    <input required type="text" class="form-control" name="cid" placeholder="Digite a Cidade">
+				    </div>					
+				    </div>
+
+				    <div class="row">
+
+				   	<div class="form-group col-md-10">
+				    <label id="ende">End.:</label>
+				    <input required type="text" class="form-control" name="ende" placeholder="Digite o Endereço">
+				    </div>
+				    <div class="form-group col-md-2">
+					<label id="tipo">Tipo de Usuário:</label>
+					<select name="tipo" class="form-control">
+					<option selected>Vendedor</option>										
+					</select>
+					</div>				    
+				    </div>
+				   
+					<button class="btn btn-info col-md-4 offset-md-4" type="submit">Cadastrar</button>
+
 					</form>
-					</div>
-					</div>
-					</div>
-<?php
-}
-?>				</div>	
+				</div>								
 			</section>
 
 			<footer>				
@@ -155,12 +225,12 @@ if($result = $stmt->fetchAll())
 <div class="modal-body">
 <form method="post" action="login.php">
 <div class="form-group">
-<label for="exampleInputEmail1" >Login:</label>
+<label for="exampleInputEmail1">Login:</label>
 <input type="text" name="login" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Digite seu login.">
 <small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu login e senha com mais ninguém.</small>
 </div>
 <div class="form-group">
-<label for="exampleInputPassword1" >Senha:</label>
+<label for="exampleInputPassword1">Senha:</label>
 <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha.">
 </div>
 <div class="form-check">
