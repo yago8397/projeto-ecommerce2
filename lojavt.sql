@@ -3,11 +3,10 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 15-Maio-2018 às 02:12
+-- Generation Time: 19-Maio-2018 às 01:30
 -- Versão do servidor: 5.6.21
 -- PHP Version: 5.6.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,6 +18,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `lojavt`
 --
+CREATE DATABASE IF NOT EXISTS `lojavt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE lojavt;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pedidos`
+--
+
+DROP TABLE IF EXISTS `pedidos`;
+CREATE TABLE IF NOT EXISTS "pedidos" (
+"id_pedido" int(11) NOT NULL,
+  "id_produto" int(11) NOT NULL,
+  "nome_produto" varchar(255) NOT NULL,
+  "id_usuario" int(11) NOT NULL,
+  "nome_usuario" varchar(255) NOT NULL,
+  "data_hora" datetime NOT NULL,
+  "total" int(11) NOT NULL
+);
 
 -- --------------------------------------------------------
 
@@ -26,14 +44,15 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `produtos`
 --
 
-CREATE TABLE IF NOT EXISTS `produtos` (
-`cod_produto` int(11) NOT NULL,
-  `img` varchar(255) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `desc` varchar(255) NOT NULL,
-  `preco` float NOT NULL,
-  `tipo` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `produtos`;
+CREATE TABLE IF NOT EXISTS "produtos" (
+"cod_produto" int(11) NOT NULL,
+  "img" varchar(255) NOT NULL,
+  "nome" varchar(255) NOT NULL,
+  "desc" varchar(255) NOT NULL,
+  "preco" float NOT NULL,
+  "tipo" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+);
 
 --
 -- Extraindo dados da tabela `produtos`
@@ -59,60 +78,69 @@ INSERT INTO `produtos` (`cod_produto`, `img`, `nome`, `desc`, `preco`, `tipo`) V
 -- Estrutura da tabela `usuarios`
 --
 
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `senha` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `csenha` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `nome` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `dtn` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `sexo` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `snome` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `tel` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `uf` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `cpf` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `cep` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `cid` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `ende` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS "usuarios" (
+  "login" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "email" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "senha" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "csenha" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "nome" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "dtn" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "sexo" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "snome" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "tel" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "uf" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "cpf" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "cep" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "cid" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "ende" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  "tipo" varchar(255) NOT NULL
+);
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`login`, `email`, `senha`, `csenha`, `nome`, `dtn`, `sexo`, `snome`, `tel`, `uf`, `cpf`, `cep`, `cid`, `ende`) VALUES
-('DASD', 'dsfgsdfg@hotmail.com', 'dsfasd', 'sadfasd', 'ASDASsdafsad', 'DAS', 'M', 'ADAS', 'DASD', 'RJ', 'ASDAS', 'ASDA', 'ASD', 'ADSAS'),
-('jfg', 'dsfgsdfg@hotmail.com', 'jmgfjfg', 'kjfgjfg', 'jfgjfg', 'jfgjf', 'M', 'fjfg', 'jfgjf', 'SP', 'fgjg', 'jfgjfg', 'jfgjg', 'fhjf'),
-('jfglkj.,jkl453453', 'dsfgsdfg@hotma.com', 'q23213a', 'aw323131', 'jfgjfg23a3', 'jfgjfasaw31', 'M', 'fjfg3123a', 'jfgjfw312312', 'SP', 'fgjg3453453', 'jfgjfg312', 'jfgjg123a', 'fhjf1231'),
-('weiqwhgeq', 'kajwhekjhawekjh@hotmail.con', 'uououiou', 'luil', 'ouiouiouio', 'iouioui', 'F', 'uiouiou', 'oiuouio', 'RJ', 'ouiouio', 'io', 'uiouiouio', 'uiouiou'),
-('asdfasdfasdf', 'sdaf654sad654@hotmail.com', 'sdafasdfasd', 'asfdads', 'sadfads', 'sdafasd', 'M', 'asdfdas', 'sadfdas', 'RJ', 'sadfasd', 'sadfads', 'sadfasd', 'sadfsda'),
-('safasd', 'dsfgsdfg@hotmail.com', 'fsadfa', 'sadfasd', 'fsadf', 'sdafasd', 'M', 'dsfsad', 'dfsad', 'SP', 'sdfsad', 'sdafasd', 'sdafas', 'dsaf');
+INSERT INTO `usuarios` (`login`, `email`, `senha`, `csenha`, `nome`, `dtn`, `sexo`, `snome`, `tel`, `uf`, `cpf`, `cep`, `cid`, `ende`, `tipo`) VALUES
+('yago', 'sdaf654sad654@hotmail.com', '123', '123', 'yago', '123', 'M', '13213', '131231', 'RJ', '12312', 'sadfads', 'sadfasd', 'sadfsda', 'Cliente'),
+('vendedor1', 'vendedor1@hotmail.com', '123', '123', 'vendedor1', 'vendedor1', 'M', 'vendedor1', 'vendedor1', 'RJ', 'vendedor1', 'sadfads', 'sadfasd', 'sadfsda', 'Vendedor');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `pedidos`
+--
+ALTER TABLE `pedidos`
+ ADD PRIMARY KEY ("id_pedido"), ADD UNIQUE KEY "nome_produto" ("nome_produto"), ADD KEY "id_produto" ("id_produto");
+
+--
 -- Indexes for table `produtos`
 --
 ALTER TABLE `produtos`
- ADD PRIMARY KEY (`cod_produto`);
+ ADD PRIMARY KEY ("cod_produto");
 
 --
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
- ADD PRIMARY KEY (`cpf`);
+ ADD PRIMARY KEY ("cpf");
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `pedidos`
+--
+ALTER TABLE `pedidos`
+MODIFY "id_pedido" int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY "cod_produto" int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
