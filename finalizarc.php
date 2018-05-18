@@ -1,31 +1,19 @@
 <?php
 include 'conexao.php';
+	
 
-	$total = $_POST['total']
-
-$stmt = $pdo->prepare ('INSERT INTO pedidos (total) VALUES (?)');
-
-$stmt->bindParam(1,$total,PDO::PARAM_STR);
+$cod_pedido = "";
+$nome_produto = $_POST[$_SESSION['carrinho'][1]];
 
 
+//$stmt = $pdo->prepare ('INSERT INTO pedidos ("",$_SESSION['cod_produto'],$_SESSION['nome_produto']) VALUES(?,?,?)');
 
-if ($stmt->execute()){
-header('refresh:0;url=index.php',true,303);
+var_dump($_POST);
 ?>
-<script  type="text/javascript" language="javascript1.5">
-	alert("Usuário cadastrado.")
-	</script>
-<?php
-} else {
-header('refresh:0;url=index.php',true,303);
-	?>
-<script  type="text/javascript" language="javascript1.5">
-	alert("Usuário não cadastrado.")
-	</script>
-<?php
-}
 
-?>
+
+
+
 
 
 

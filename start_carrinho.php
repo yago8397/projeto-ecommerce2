@@ -6,9 +6,10 @@
 	$img = $_POST['img'];
 	$nome = $_POST['nome'];
 	$desc = $_POST['desc'];
-	$preco = $_POST['preco'];	
+	$preco = $_POST['preco'];
+	$cod_produto = $_POST['cod_produto'];	
 
-	$td = [$img,$nome,$desc,$preco]; 
+	$td = [$img,$nome,$desc,$preco,$cod_produto]; 
 
 	if (!isset($_SESSION['carrinho'])) {
 		$_SESSION['carrinho']= []; 

@@ -93,7 +93,7 @@ else{
 <?php 
 $stmt = $pdo->prepare('SELECT * FROM produtos');
 $stmt->execute();
-if($alvos = $stmt->fetchAll()){
+if($alvos = $stmt->fetchAll()){	
  ?>
 
 				<div class="row col-md-12 col-xl-8 offset-xl-2 mt-3">
@@ -111,6 +111,7 @@ if($alvos = $stmt->fetchAll()){
 					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
 					<form action="start_carrinho.php" method="post">
 					<button class="btn btn-info p-1">Comprar</button>
+						<input type="hidden" name="cod_produto" value="<?php echo $alvos[0]['cod_produto']; ?>">
 						<input type="hidden" name="img" value="<?php echo $alvos[0]['img']; ?>">
 						<input type="hidden" name="nome" value="<?php echo $alvos[0]['nome'] ;?>">
 						<input type="hidden" name="desc" value="<?php echo $alvos[0]['desc']; ?>">
