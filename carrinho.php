@@ -157,11 +157,23 @@ $totalc = $totalc + $td[3];
 					</div>
 					</form>					
 					</div>
-
 					
 					<div class="col-md-3">					
-					<a class="nav-link btn btn btn-dark btn-sm bg-danger p-1 m-1" href="acaocarrinho.php?acao=esvaziar" >Esvaziar Carrinho</a>															
-	    			<a type="submit" class="nav-link btn btn btn-dark btn-sm bg-info p-1 m-1" href="finalizarc.php" >Finalizar Compra</a>
+					<a class="nav-link btn btn btn-dark btn-sm bg-danger p-1 m-1" href="acaocarrinho.php?acao=esvaziar" >Esvaziar Carrinho</a>	
+
+<?php 
+if(!isset($_SESSION['logar'])){
+?> 
+<button type="submit" class="nav-link btn btn btn-dark btn-sm bg-info p-1 m-1" disabled>Finalizar Compra';</button>
+<?php
+}
+else{
+?>													
+	   				<button type="submit" class="nav-link btn btn btn-dark btn-sm bg-info p-1 m-1" >Finalizar Compra</button>
+	   				<input type="hidden" name="total" value="<?php echo number_format((float)$totalc, 2, '.', '');?> ">
+<?php 
+}
+?>
 					</div>
 						
 					</div>					

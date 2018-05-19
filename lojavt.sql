@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 19-Maio-2018 às 01:30
+-- Generation Time: 19-Maio-2018 às 02:35
 -- Versão do servidor: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -34,7 +34,6 @@ CREATE TABLE IF NOT EXISTS "pedidos" (
   "nome_produto" varchar(255) NOT NULL,
   "id_usuario" int(11) NOT NULL,
   "nome_usuario" varchar(255) NOT NULL,
-  "data_hora" datetime NOT NULL,
   "total" int(11) NOT NULL
 );
 
@@ -90,20 +89,20 @@ CREATE TABLE IF NOT EXISTS "usuarios" (
   "snome" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   "tel" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   "uf" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  "cpf" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  "cep" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+"cod_usuario" int(11) NOT NULL,
+  "cep" varchar(255) NOT NULL,
   "cid" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   "ende" varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  "tipo" varchar(255) NOT NULL
+  "tipo" varchar(255) NOT NULL,
+  "cpf" varchar(255) NOT NULL
 );
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`login`, `email`, `senha`, `csenha`, `nome`, `dtn`, `sexo`, `snome`, `tel`, `uf`, `cpf`, `cep`, `cid`, `ende`, `tipo`) VALUES
-('yago', 'sdaf654sad654@hotmail.com', '123', '123', 'yago', '123', 'M', '13213', '131231', 'RJ', '12312', 'sadfads', 'sadfasd', 'sadfsda', 'Cliente'),
-('vendedor1', 'vendedor1@hotmail.com', '123', '123', 'vendedor1', 'vendedor1', 'M', 'vendedor1', 'vendedor1', 'RJ', 'vendedor1', 'sadfads', 'sadfasd', 'sadfsda', 'Vendedor');
+INSERT INTO `usuarios` (`login`, `email`, `senha`, `csenha`, `nome`, `dtn`, `sexo`, `snome`, `tel`, `uf`, `cod_usuario`, `cep`, `cid`, `ende`, `tipo`, `cpf`) VALUES
+('yago', 'yago_rj@hotmail.com', '123', '123', 'Yago', 'fsad', 'M', 'sdfsa', 'sdfs', 'RJ', 1, '544545', 'Rio', 'sdafasdf', 'Cliente', 'sdafas');
 
 --
 -- Indexes for dumped tables
@@ -125,7 +124,7 @@ ALTER TABLE `produtos`
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
- ADD PRIMARY KEY ("cpf");
+ ADD PRIMARY KEY ("cod_usuario");
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -141,6 +140,11 @@ MODIFY "id_pedido" int(11) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `produtos`
 MODIFY "cod_produto" int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+MODIFY "cod_usuario" int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

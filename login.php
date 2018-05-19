@@ -13,6 +13,7 @@ $stmt->execute();
 if($alvos = $stmt->fetchAll()){
 	if($alvos[0]['tipo']=="Cliente"){
 		$_SESSION['logar'] = $alvos[0]['nome'];
+		$_SESSION['cpf'] = $alvos[0]['cpf'];
 		header('location: index.php');
 	}
 	elseif ($alvos[0]['tipo']=="Vendedor"){

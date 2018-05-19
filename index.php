@@ -116,6 +116,7 @@ if($alvos = $stmt->fetchAll()){
 						<input type="hidden" name="nome" value="<?php echo $alvos[0]['nome'] ;?>">
 						<input type="hidden" name="desc" value="<?php echo $alvos[0]['desc']; ?>">
 						<input type="hidden" name="preco" value="<?php echo $alvos[0]['preco']; ?>">
+						<input type="hidden" name="cod_produto" value="<?php echo $alvos[0]['cod_produto'];?>">
 					</form>
 					</div>
 					</div>
@@ -138,6 +139,7 @@ if($alvos = $stmt->fetchAll()){
 						<input type="hidden" name="nome" value="<?php echo $alvos[1]['nome'] ;?>">
 						<input type="hidden" name="desc" value="<?php echo $alvos[1]['desc']; ?>">
 						<input type="hidden" name="preco" value="<?php echo $alvos[1]['preco']; ?>">
+						<input type="hidden" name="cod_produto" value="<?php echo $alvos[1]['cod_produto']; ?>">
 					</form>
 					</div>
 					</div>					
@@ -161,6 +163,7 @@ if($alvos = $stmt->fetchAll()){
 						<input type="hidden" name="nome" value="<?php echo $alvos[2]['nome'] ;?>">
 						<input type="hidden" name="desc" value="<?php echo $alvos[2]['desc']; ?>">
 						<input type="hidden" name="preco" value="<?php echo $alvos[2]['preco']; ?>">
+						<input type="hidden" name="cod_produto" value="<?php echo $alvos[2]['cod_produto']; ?>">
 					</form>
 					</div>
 					</div>

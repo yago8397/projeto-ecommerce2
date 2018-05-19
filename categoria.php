@@ -114,6 +114,7 @@ if($result = $stmt->fetchAll())
 					<input type="hidden" name="nome" value="<?php echo $alvos['nome'] ;?>">
 					<input type="hidden" name="desc" value="<?php echo $alvos['desc']; ?>">
 					<input type="hidden" name="preco" value="<?php echo $alvos['preco']; ?>">
+					<input type="hidden" name="cod_produto" value="<?php echo $alvos['cod_produto']; ?>">
 					</form>
 					</div>
 					</div>

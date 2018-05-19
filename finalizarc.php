@@ -1,14 +1,28 @@
 <?php
+session_start();
 include 'conexao.php';
-	
-
-$cod_pedido = "";
-$nome_produto = $_POST[$_SESSION['carrinho'][1]];
 
 
-//$stmt = $pdo->prepare ('INSERT INTO pedidos ("",$_SESSION['cod_produto'],$_SESSION['nome_produto']) VALUES(?,?,?)');
+$cod_produto = [];
+$nome_produto = [];
+$cod_usuario = [];
+$nome_usuario = [];
+$total = [];
 
-var_dump($_POST);
+foreach ($_SESSION['carrinho'] as $item) {
+	array_push($cod_produto,$item[4]);
+	array_push($nome_produto,$item[1]);
+	array_push($cod_usuario,$item[4]);
+
+}
+
+
+$cod_produto = implode(",", $cod_produto);
+
+
+print_r($cod_produto);
+
+
 ?>
 
 
