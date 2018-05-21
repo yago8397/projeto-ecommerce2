@@ -62,7 +62,7 @@ else{
 			</header>				
 			
 			<nav>		
-				<div class="row col-md-10 offset-md-1 col-xl-6 offset-xl-3">
+				<div class="row d-flex justify-content-center">
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">

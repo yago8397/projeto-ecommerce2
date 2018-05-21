@@ -62,7 +62,7 @@ else{
 			</header>				
 			
 			<nav>		
-				<div class="row col-md-10 offset-md-1 col-xl-6 offset-xl-3">
+				<div class="row d-flex justify-content-center">
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
@@ -93,7 +93,7 @@ if (!isset($_SESSION['carrinho'])) {
 	$totalc = 0;
 	foreach($_SESSION['carrinho'] as $td){	
  ?>
-					<div class="row col-xl-10 offset-xl-1">
+					<div class="row d-flex justify-content-center">
 
 					<div class="col-md-3">
 					<img src="<?php echo $td[0];?>" width="100" height="100" border="1">					
@@ -113,7 +113,7 @@ if (!isset($_SESSION['carrinho'])) {
 					<div class="col-md-2">
 					<table>
 					<tr>
-					<td><font face=’Arial’ size=’2′>Preço: <?php echo "R$ ".$td[3]; ?></font></td>
+					<td><font face=’Arial’ size=’2′>Preço: R$ <?php echo number_format((float)$td[3], 2, ',', '');?></font></td>
 					</tr>	
 					</table>									
 					</div>									
@@ -125,10 +125,10 @@ $totalc = $totalc + $td[3];
 }
 ?>					
 					
-					<div class="row col-xl-10 offset-xl-1">
+					<div class="row">
 					
 
-					<div class="col-md-3">
+					<div class="col-md-2">
 					<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
 					<tr>
 					<td><font face=’Arial’ size=’2′><h5>Total da Compra:</h5></font></td>
@@ -139,44 +139,46 @@ $totalc = $totalc + $td[3];
 					<div class="col-md-2">					
 					<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
 					<tr>
-					<td><font face=’Arial’ size=’2′><h5>R$:<?php echo $totalc;?></h5></font></td>
+					<td><font face=’Arial’ size=’2′><h5>R$ <?php echo number_format((float)$totalc, 2, ',', '');?></h5></font></td>
 					</tr>
 					</table>
 					</div>
 					
-					<div class="col-md-4">
-					<form action="finalizarc.php" method="post">
+
+					<form action="finalizarc.php" class="row col-md-8" method="post">					
+					<div class="col-md-5">
 					<div class="form-group">
-					<label id="total">Forma de Pagamento:</label>
-					<select name="total" class="form-control">
+					<label >Forma de Pagamento:</label>
+					<select name="parcelas" class="form-control">
 					<option disabled selected>-</option>
-					<option value="<?php echo $totalc ?>"><?php echo number_format((float)$totalc, 2, '.', '');?> à vista.</option>
-					<option value="<?php echo $totalc ?>">10x de <?php echo number_format((float)$totalc/10, 2, '.', '');?> sem juros.</option>
-					<option value="<?php echo $totalc*1.1 ?>">12x de <?php echo number_format((float)$totalc/12*1.1, 2, '.', '');?> com 10% juros.</option>
+					<option value="0">R$ <?php echo number_format((float)$totalc, 2, ',', '');?> à vista.</option>
+					<option value="10">10x de R$ <?php echo number_format((float)$totalc/10, 2, ',', '');?> sem juros.</option>
+					<option value="12">12x de R$ <?php echo number_format((float)$totalc/12*1.1, 2, ',', '');?> com 10% juros.</option>
 					</select>
+					<input type="hidden" name="total_pagar" value="<?php echo $totalc ?>">
+					<input type="hidden" name="total_pagar_j" value="<?php echo $totalc*1.1 ?>">
 					</div>
-					</form>					
 					</div>
 					
+					
 					<div class="col-md-3">					
-					<a class="nav-link btn btn btn-dark btn-sm bg-danger p-1 m-1" href="acaocarrinho.php?acao=esvaziar" >Esvaziar Carrinho</a>	
-
+					<a class="nav-link btn btn btn-dark btn-sm bg-danger p-1 m-1 w-75" href="acaocarrinho.php?acao=esvaziar" >Esvaziar Carrinho</a>	
 <?php 
 if(!isset($_SESSION['logar'])){
 ?> 
-<button type="submit" class="nav-link btn btn btn-dark btn-sm bg-info p-1 m-1" disabled>Finalizar Compra';</button>
+					<button type="submit" class="nav-link btn btn btn-dark btn-sm bg-info pt-1 m-1 w-75 " disabled>Finalizar Compra</button>
 <?php
 }
 else{
-?>													
-	   				<button type="submit" class="nav-link btn btn btn-dark btn-sm bg-info p-1 m-1" >Finalizar Compra</button>
-	   				<input type="hidden" name="total" value="<?php echo number_format((float)$totalc, 2, '.', '');?> ">
+?>			   				
+	   				<button type="submit" class="nav-link btn btn btn-dark btn-sm bg-info p-1 m-1 w-75" >Finalizar Compra</button>
 <?php 
 }
 ?>
-					</div>
-						
-					</div>					
+	   				</div>					
+					</form>
+					</div>						
+										
 				</div>
 			</section>
 

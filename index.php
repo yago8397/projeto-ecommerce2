@@ -62,7 +62,7 @@ else{
 			</header>				
 			
 			<nav>		
-				<div class="row col-md-10 offset-md-1 col-xl-6 offset-xl-3">
+				<div class="row d-flex justify-content-center">
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
@@ -83,95 +83,48 @@ else{
 				</div>
 			</nav>			
 
-			<section>
-				<div class="col-md-6 offset-md-3">
+				<section>
+					<div class="col-md-6 offset-md-3">
 					<figure class="figure mt-2 mb-2">
 	        		<img class="img-fluid"  src="imagens/gif.gif" alt="Banner da empresa" />
 	      			</figure>
 				</div>
 
+				<div class="row col-md-12 col-xl-8 offset-xl-2 mt-3">				
 <?php 
 $stmt = $pdo->prepare('SELECT * FROM produtos');
+$stmt->bindParam(1, $tipo, PDO::PARAM_STR);
 $stmt->execute();
-if($alvos = $stmt->fetchAll()){	
+if($result = $stmt->fetchAll())
+	foreach ($result as $alvos){
  ?>
 
-				<div class="row col-md-12 col-xl-8 offset-xl-2 mt-3">
-
 					<div class="col-md-4 col-xl-4">
 
 					<div class="card h-100 w-auto" >
-					<img class="card-img-top p-3" src=<?php echo $alvos[0]['img']; ?> alt="Card image cap">
+						
+					<img class="card-img-top p-3" src=<?php echo $alvos['img']; ?> alt="Card image cap">
 					<div class="card-body bg-info">
-					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos[0]['nome'] ;?></h5>
-					<p class="card-text text-center h-100 w-auto"><?php echo $alvos[0]['desc']; ?></p>
-					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos[0]['preco']; ?></p>
+					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos['nome'] ;?></h5>
+					<p class="card-text text-center h-100 w-auto"><?php echo $alvos['desc']; ?></p>
+					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos['preco']; ?></p>
 					</div>					
 					<div class="row p-3 m-0">
 					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
 					<form action="start_carrinho.php" method="post">
 					<button class="btn btn-info p-1">Comprar</button>
-						<input type="hidden" name="cod_produto" value="<?php echo $alvos[0]['cod_produto']; ?>">
-						<input type="hidden" name="img" value="<?php echo $alvos[0]['img']; ?>">
-						<input type="hidden" name="nome" value="<?php echo $alvos[0]['nome'] ;?>">
-						<input type="hidden" name="desc" value="<?php echo $alvos[0]['desc']; ?>">
-						<input type="hidden" name="preco" value="<?php echo $alvos[0]['preco']; ?>">
-						<input type="hidden" name="cod_produto" value="<?php echo $alvos[0]['cod_produto'];?>">
+					<input type="hidden" name="img" value="<?php echo $alvos['img']; ?>">
+					<input type="hidden" name="nome" value="<?php echo $alvos['nome'] ;?>">
+					<input type="hidden" name="desc" value="<?php echo $alvos['desc']; ?>">
+					<input type="hidden" name="preco" value="<?php echo $alvos['preco']; ?>">
+					<input type="hidden" name="cod_produto" value="<?php echo $alvos['cod_produto']; ?>">
 					</form>
 					</div>
 					</div>
 					</div>
-
-					<div class="col-md-4 col-xl-4">
-
-					<div class="card h-100 w-auto" >
-					<img class="card-img-top p-3" src=<?php echo $alvos[1]['img']; ?> alt="Card image cap">
-					<div class="card-body bg-info">
-					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos[1]['nome'] ;?></h5>
-					<p class="card-text text-center h-100 w-auto"><?php echo $alvos[1]['desc']; ?></p>
-					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos[1]['preco']; ?></p>
-					</div>
-					<div class="row p-3 m-0">
-					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
-					<form action="start_carrinho.php" method="post">
-					<button class="btn btn-info p-1">Comprar</button>
-						<input type="hidden" name="img" value="<?php echo $alvos[1]['img']; ?>">
-						<input type="hidden" name="nome" value="<?php echo $alvos[1]['nome'] ;?>">
-						<input type="hidden" name="desc" value="<?php echo $alvos[1]['desc']; ?>">
-						<input type="hidden" name="preco" value="<?php echo $alvos[1]['preco']; ?>">
-						<input type="hidden" name="cod_produto" value="<?php echo $alvos[1]['cod_produto']; ?>">
-					</form>
-					</div>
-					</div>					
-					</div>
-
-
-					<div class="col-md-4 col-xl-4">
-
-					<div class="card h-100 w-auto" >
-					<img class="card-img-top p-3" src=<?php echo $alvos[2]['img']; ?> alt="Card image cap">
-					<div class="card-body bg-info">
-					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos[2]['nome'] ;?></h5>
-					<p class="card-text text-center h-100 w-auto"><?php echo $alvos[2]['desc']; ?></p>
-					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos[2]['preco']; ?></p>
-					</div>					
-					<div class="row p-3 m-0">
-					<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>
-					<form action="start_carrinho.php" method="post">
-					<button class="btn btn-info p-1">Comprar</button>
-						<input type="hidden" name="img" value="<?php echo $alvos[2]['img']; ?>">
-						<input type="hidden" name="nome" value="<?php echo $alvos[2]['nome'] ;?>">
-						<input type="hidden" name="desc" value="<?php echo $alvos[2]['desc']; ?>">
-						<input type="hidden" name="preco" value="<?php echo $alvos[2]['preco']; ?>">
-						<input type="hidden" name="cod_produto" value="<?php echo $alvos[2]['cod_produto']; ?>">
-					</form>
-					</div>
-					</div>
-					</div>
-				</div>
 <?php
 }
-?>					
+?>				</div>	
 			</section>
 
 			<footer>				

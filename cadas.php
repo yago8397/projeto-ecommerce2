@@ -36,14 +36,19 @@ $stmt->bindParam(13,$cid,PDO::PARAM_STR);
 $stmt->bindParam(14,$ende,PDO::PARAM_STR);
 $stmt->bindParam(15,$tipo,PDO::PARAM_STR);
 
+$stmt->execute();
 
-if ($stmt->execute()){
+if($_POST['tipo']=="Cliente"){
 header('refresh:0;url=index.php',true,303);
 ?>
-<script  type="text/javascript" language="javascript1.5">
-	alert("Usuário cadastrado.")
-	</script>
+
+<script type="text/javascript" language="javascript1.5">
+alert ("Usuário cadastrado.")
+</script>
+
 <?php
+}elseif ($_POST['tipo']=="Vendedor"){
+		header('refresh:0;url=index_vendedor.php',true,303);	
 } else {
 header('refresh:0;url=index.php',true,303);
 	?>

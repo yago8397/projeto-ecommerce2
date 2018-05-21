@@ -13,13 +13,13 @@ $stmt->execute();
 if($alvos = $stmt->fetchAll()){
 	if($alvos[0]['tipo']=="Cliente"){
 		$_SESSION['logar'] = $alvos[0]['nome'];
-		$_SESSION['cpf'] = $alvos[0]['cpf'];
+		$_SESSION['cod_usuario'] = $alvos[0]['cod_usuario'];
+		$_SESSION['email_usuario'] = $alvos[0]['email'];
 		header('location: index.php');
 	}
 	elseif ($alvos[0]['tipo']=="Vendedor"){
 		$_SESSION['logarv'] = $alvos[0]['nome'];
-		header('location: p_vendedor.php');
-	
+		header('location: index_vendedor.php');	
 }
 }else{
 ?>

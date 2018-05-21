@@ -62,7 +62,7 @@ else{
 			</header>				
 			
 			<nav>		
-				<div class="row col-md-10 offset-md-1 col-xl-6 offset-xl-3">
+				<div class="row d-flex justify-content-center">
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
@@ -175,11 +175,11 @@ else{
 
 				    <div class="row">
 
-				   	<div class="form-group col-md-10">
+				   	<div class="form-group col-md-12">
 				    <label id="ende">End.:</label>
 				    <input required type="text" class="form-control" name="ende" placeholder="Digite o Endereço">
 				    </div>
-				    <div class="form-group col-md-2">
+				    <div class="form-group col-md-2 d-none">
 					<label id="tipo">Tipo de Usuário:</label>
 					<select name="tipo" class="form-control">
 					<option selected>Cliente</option>										

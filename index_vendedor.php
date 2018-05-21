@@ -62,29 +62,72 @@ else{
 			</header>				
 			
 			<nav>		
-				<div class="row col-md-10 offset-md-1 col-xl-6 offset-xl-3">
+				<div class="row d-flex justify-content-center">
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
-	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="p_vendedor.php" >Início</a>
+	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index_vendedor.php" >Cadastro de Produtos</a>
 					</li>
 					<li class="nav-item mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=informatica">Informática e Telefonia</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">Nada1 </a>
 					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=eletrodomestico">Eletrodomésticos</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">Nada2</a>
 					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=decoracao">Móveis e Decoração</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">nada3</a>
 					
 					<li class="nav-item dropdown ">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=entretenimento">Entretenimento</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">nada4</a>
 					</ul>																
 				</div>
 			</nav>			
 
 			<section>
-				
+				<div class="col-md col-xl-6 offset-xl-3 mt-2 mb-2 p-3 border border-info rounded" style="background-color: #BDBDBD">
+					
+					<h5 class=" row card-header bg-info mb-2">Cadastro dos Produtos:</h5>
+
+					<form  method="post" action="cadas_produtos.php">
+
+					
+
+					<div class="form-group m-1">
+				    <label id="img">Imagem:</label>				    
+  					<input type="file" name="img" accept="image/*">  										
+				    </div>					
+ 
+				    <div class="form-group m-1">
+				    <label id="nome">Nome:</label>
+				    <input required type="text" class="form-control" name="nome">
+				    </div>					
+
+				    <div class="form-group m-1">
+				    <label id="desc">Descrição:</label>
+				    <input required type="text" class="form-control" name="desc">
+				    </div>					
+
+				    <div class="form-group m-1">
+				    <label id="preco">Preço:</label>
+				    <input required type="text" class="form-control" name="preco">
+				    </div>					
+
+					<div class="form-group m-1">
+					<label id="tipo">Tipo de Usuário:</label>
+					<select name="tipo" class="form-control">
+					<option disabled selected>-</option>
+					<option>informatica</option>	
+					<option>decoracao</option>
+					<option>entretenimento</option>
+					<option>eletrodomestico</option>									
+					</select>
+					</div>			   				    				    
+					
+				   
+					<button class="btn btn-info col-md-4 offset-md-4" type="submit">Cadastrar</button>
+
+					</form>
+				</div>								
 			</section>
 
 			<footer>				
