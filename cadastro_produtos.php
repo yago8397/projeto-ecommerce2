@@ -73,108 +73,45 @@ else{
 			</nav>			
 
 			<section>
-				<div class="col-md col-xl-8 offset-xl-2 mt-2 mb-2 p-3 border border-info rounded" style="background-color: #BDBDBD">
+				<div class="col-md col-xl-6 offset-xl-3 mt-2 mb-2 p-3 border border-info rounded" style="background-color: #BDBDBD">
 					
-					<h5 class=" row card-header bg-info mb-2">Cadastro do Vendedor:</h5>
+					<h5 class=" row card-header bg-info mb-2">Cadastro dos Produtos:</h5>
 
-					<form  method="post" action="cadas.php">
+					<form  method="post" action="cadas_produtos.php">
 
-					<div class="row">
-
-					<div class="form-group col-md-4">
-				    <label id="login">Login:</label>
-				    <input required type="text" class="form-control" name="login" placeholder="Digite o Login">
-				    </div>
-				    <div class="form-group col-md-8">
-				    <label id="email">Email:</label>
-				    <input required type="email" class="form-control" name="email" placeholder="Digite o email">
-				    </div>				    				    
-					</div>				    
 					
 
-					<div class="row">
-
-				    <div class="form-group col-md-6">
-				    <label id="senha">Senha:</label>
-				    <input required type="password" class="form-control" name="senha" placeholder="Digite a senha">
-				    </div>
-				    <div class="form-group col-md-6">
-				    <label id="csenha">Comfirmar Senha:</label>
-				    <input required type="password" class="form-control" name="csenha" placeholder="Comfirmar senha">
-				    </div>
-					</div>
-
-					<div class="row">
-
-				    <div class="form-group col-md-6">
-				    <label id="nome">Nome:</label>
-				    <input required type="text" class="form-control" name="nome" placeholder="Digite o nome">
-				    </div>				    
-				    <div class="form-group col-md-4">
-				    <label id="dtn">Data de Nasc.:</label>
-				    <input required type="text" class="form-control" name="dtn" placeholder="">
-				    </div>
-				    <div class="form-group col-md-2">
-					<label id="sexo">Sexo:</label>
-					<select name="sexo" class="form-control">
-					<option disabled selected>-</option>
-					<option>M</option>
-					<option>F</option>
-					</select>
-					</div>				    				    
-					</div>  
-
-					<div class="row">
-
-					<div class="form-group col-md-6">
-				    <label id="snome">Sobrenome:</label>
-				    <input required type="text" class="form-control" name="snome" placeholder="Digite o Sobrenome">
-				    </div>				    
-					<div class="form-group col-md-3">
-				    <label id="tel">Tel.:</label>
-				    <input required type="text" class="form-control" name="tel" placeholder="">
-				    </div>
-				    <div class="form-group col-md-2">
-					<label id="uf">UF:</label>
-					<select name="uf" class="form-control">
-					<option disabled selected>-</option>
-					<option>RJ</option>
-					<option>SP</option>
-					<option>MG</option>
-					<option>ES</option>
-					</select>
-					</div>				   
-					</div>
-
-					<div class="row">					
-									    
-				    <div class="form-group col-md-4">
-				    <label id="cpf">CPF:</label>
-				    <input required type="text" class="form-control" name="cpf" placeholder="">
-				    </div>
-				    <div class="form-group col-md-4">
-				    <label id="cep">CEP:</label>
-				    <input required type="text" class="form-control" name="cep" placeholder="">
-				    </div>
-				    <div class="form-group col-md-4">
-				    <label id="cid">Cidade:</label>
-				    <input required type="text" class="form-control" name="cid" placeholder="Digite a Cidade">
+					<div class="form-group m-1">
+				    <label id="img">Imagem:</label>				    
+  					<input type="file" name="img" accept="image/*">  										
 				    </div>					
-				    </div>
+ 
+				    <div class="form-group m-1">
+				    <label id="nome">Nome:</label>
+				    <input required type="text" class="form-control" name="nome">
+				    </div>					
 
-				    <div class="row">
+				    <div class="form-group m-1">
+				    <label id="descri">Descrição:</label>
+				    <input required type="text" class="form-control" name="descri">
+				    </div>					
 
-				   	<div class="form-group col-md-12">
-				    <label id="ende">End.:</label>
-				    <input required type="text" class="form-control" name="ende" placeholder="Digite o Endereço">
-				    </div>
-				    <div class="form-group col-md-2 d-none">
+				    <div class="form-group m-1">
+				    <label id="preco">Preço:</label>
+				    <input required type="text" class="form-control" name="preco">
+				    </div>					
+
+					<div class="form-group m-1">
 					<label id="tipo">Tipo de Usuário:</label>
 					<select name="tipo" class="form-control">
-					<option selected>Vendedor</option>										
+					<option disabled selected>-</option>
+					<option>informatica</option>	
+					<option>decoracao</option>
+					<option>entretenimento</option>
+					<option>eletrodomestico</option>									
 					</select>
-					</div>				    
-				    </div>
+					</div>			   				    				    
+					
 				   
 					<button class="btn btn-info col-md-4 offset-md-4" type="submit">Cadastrar</button>
 
@@ -214,12 +151,12 @@ else{
 <div class="modal-body">
 <form method="post" action="login.php">
 <div class="form-group">
-<label for="exampleInputEmail1">Login:</label>
+<label for="exampleInputEmail1" >Login:</label>
 <input type="text" name="login" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Digite seu login.">
 <small id="emailHelp" class="form-text text-muted">Nós nunca vamos compartilhar seu login e senha com mais ninguém.</small>
 </div>
 <div class="form-group">
-<label for="exampleInputPassword1">Senha:</label>
+<label for="exampleInputPassword1" >Senha:</label>
 <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha.">
 </div>
 <div class="form-check">

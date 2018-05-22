@@ -19,45 +19,34 @@ include "conexao.php";
 
 					<div class="col-md-2  col-xl-2 mt-2 ">
 						<figure class="figure">
-						<a href="index.php">
+						<a href="index_vendedor.php">
 	        			<img class="img-fluid " src="imagens/logo.png" alt="Logo da empresa"/>
 	        			</a>
 	      				</figure>
 					</div>
 		      		<div class="col-md-7 col-xl-8 mt-3" >
-		      			<form  action="procurar.php" method="post">
+		      			<form  action="procurar_vendedor.php" method="post">
 		        		<input name="busca" id="busca" class="form-control mr-sm-2 " type="text" placeholder="Qual produto está procurando?" aria-label="Search">	
 		      			</form>
 		      		</div>		      		
 <?php 
-if (isset($_SESSION['logar'])){
+if (isset($_SESSION['logarv'])){
 ?>					
 					<div class="col-md-3 col-xl-2 mt-1 mb-1 text-black ">
 					
-		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logar'];?></a><br>Seja Bem-Vindo!</p>		      		
-		      		  		      		
-		      		<a href="carrinho.php" class="btn btn btn-info btn-sm m-1"><i class="fas fa-cart-plus"></i></a>
-		      		<a href="desloga.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
+		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logarv'];?></a><br>Seja Bem-Vindo!</p>		      		
+		      				      		
+		      		<a href="deslogav.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
 
 
 		      		</div>		      										
 <?php
 }
 else{
-?>
-					<div class="col-md-3 col-xl-2 mt-1 mb-1 ">
-		      		<div class="row m-1">
-		      			<a class="btn btn btn-info btn-sm mr-1" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
-		      			<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
-		      		</div>		      				      		
-		      		<div class="row m-1 ">
-		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
-		      		</div>
-		      		
-		      		</div>
-<?php
+	header('location:index.php');
 }
-?>									
+?>
+								
 				</div>				
 			</header>				
 			
@@ -66,46 +55,46 @@ else{
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
-	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php" >Início</a>
+	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index_vendedor.php">Início</a>
 					</li>
 					<li class="nav-item mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=informatica">Informática e Telefonia</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=informatica">Informática e Telefonia</a>
 					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=eletrodomestico">Eletrodomésticos</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=eletrodomestico">Eletrodomésticos</a>
 					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=decoracao">Móveis e Decoração</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=decoracao">Móveis e Decoração</a>
 					
 					<li class="nav-item dropdown ">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=entretenimento">Entretenimento</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=entretenimento">Entretenimento</a>
 					</ul>																
 				</div>
-			</nav>				
+			</nav>			
 
-			<section>
-				<h5 class="card-header bg-info mt-2">Carrinho de Compras</h5>
+			<section>							
+				<h5 class="card-header bg-info mt-2">Produdos</h5>
 				<div class="m-5">
 <?php 
-if (!isset($_SESSION['carrinho'])) {
-		$_SESSION['carrinho']= []; 
-	}	
-	$totalc = 0;
-	foreach($_SESSION['carrinho'] as $td){	
- ?>
-				<div class="row d-flex justify-content-center">
+$stmt = $pdo->prepare('SELECT * FROM produtos');
+$stmt->bindParam(1, $tipo, PDO::PARAM_STR);
+$stmt->execute();
+if($result = $stmt->fetchAll())
+	foreach ($result as $alvos){
+?>
+ 				<div class="row">
 
-				<div class="col-md-3">
-				<img src="<?php echo $td[0];?>" width="100" height="100" border="1">					
+				<div class="col-md-2">
+				<img src="<?php echo $alvos['img']; ?>" width="100" height="100" border="1">					
 				</div>
 
 				<div class="col-md-7">
 				<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
 				<tr>
-				<td><font face=’Arial’ size=’2′>Produto: <?php echo $td[1];?></font></td>
+				<td><font face=’Arial’ size=’2′>Produto: <?php echo $alvos['nome'] ;?></font></td>
 				</tr>
 				<tr>
-				<td><font face=’Arial’ size=’2′>Descrição: <?php echo $td[2]; ?></font></td>
+				<td><font face=’Arial’ size=’2′>Descrição: <?php echo $alvos['descri']; ?></font></td>
 				</tr>					
 				</table>
 				</div>
@@ -113,73 +102,25 @@ if (!isset($_SESSION['carrinho'])) {
 				<div class="col-md-2">
 				<table>
 				<tr>
-				<td><font face=’Arial’ size=’2′>Preço: R$ <?php echo number_format((float)$td[3], 2, ',', '');?></font></td>
+				<td><font face=’Arial’ size=’2′>Preço: R$ <?php echo number_format((float)$alvos['preco'], 2, ',', '');?></font></td>
+				</tr>	
+				</table>									
+				</div>
+
+				<div class="col-md-1">
+				<table>
+				<tr>
+				<td><a href="excluir.php?del=<?php echo $alvos['cod_produto']; ?>" class="btn btn btn-info btn-sm m-1"><i class="fas fa-times"></i></a></td>
 				</tr>	
 				</table>									
 				</div>									
 				</div>
 
-				<div class="dropdown-divider"></div>	
-<?php
-$totalc = $totalc + $td[3];
-}
-?>					
-					
-					<div class="row">
-					
-
-					<div class="col-md-2">
-					<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-					<tr>
-					<td><font face=’Arial’ size=’2′><h5>Total da Compra:</h5></font></td>
-					</tr>
-					</table>					
-					</div>
-
-					<div class="col-md-2">					
-					<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-					<tr>
-					<td><font face=’Arial’ size=’2′><h5>R$ <?php echo number_format((float)$totalc, 2, ',', '');?></h5></font></td>
-					</tr>
-					</table>
-					</div>
-					
-
-					<form action="finalizarc.php" class="row col-md-8" method="post">					
-					<div class="col-md-5">
-					<div class="form-group">
-					<label >Forma de Pagamento:</label>
-					<select name="parcelas" class="form-control">
-					<option disabled selected>-</option>
-					<option value="0">R$ <?php echo number_format((float)$totalc, 2, ',', '');?> à vista.</option>
-					<option value="10">10x de R$ <?php echo number_format((float)$totalc/10, 2, ',', '');?> sem juros.</option>
-					<option value="12">12x de R$ <?php echo number_format((float)$totalc/12*1.1, 2, ',', '');?> com 10% juros.</option>
-					</select>
-					<input type="hidden" name="total_pagar" value="<?php echo $totalc ?>">
-					<input type="hidden" name="total_pagar_j" value="<?php echo $totalc*1.1 ?>">
-					</div>
-					</div>
-					
-					
-					<div class="col-md-3">					
-					<a class="nav-link btn btn btn-dark btn-sm bg-danger p-1 m-1 w-75" href="acaocarrinho.php?acao=esvaziar" >Esvaziar Carrinho</a>	
-<?php 
-if(!isset($_SESSION['logar'])){
-?> 
-					<button type="submit" class="nav-link btn btn btn-dark btn-sm bg-info pt-1 m-1 w-75 " disabled>Finalizar Compra</button>
+				<div class="dropdown-divider"></div>
 <?php
 }
-else{
-?>			   				
-	   				<button type="submit" class="nav-link btn btn btn-dark btn-sm bg-info p-1 m-1 w-75" >Finalizar Compra</button>
-<?php 
-}
-?>
-	   				</div>					
-					</form>
-					</div>						
-										
-				</div>
+?>				
+				</div>												
 			</section>
 
 			<footer>				
@@ -192,6 +133,7 @@ else{
 					</div>
 					</div>								
 			</footer>
+
 
 		</div>		
 

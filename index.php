@@ -88,16 +88,16 @@ else{
 					<figure class="figure mt-2 mb-2">
 	        		<img class="img-fluid"  src="imagens/gif.gif" alt="Banner da empresa" />
 	      			</figure>
-				</div>
+					</div>
 
-				<div class="row col-md-12 col-xl-8 offset-xl-2 mt-3">				
+					<div class="row col-md-12 col-xl-8 offset-xl-2 mt-3">				
 <?php 
 $stmt = $pdo->prepare('SELECT * FROM produtos');
 $stmt->bindParam(1, $tipo, PDO::PARAM_STR);
 $stmt->execute();
 if($result = $stmt->fetchAll())
 	foreach ($result as $alvos){
- ?>
+?>
 
 					<div class="col-md-4 col-xl-4">
 
@@ -124,7 +124,8 @@ if($result = $stmt->fetchAll())
 					</div>
 <?php
 }
-?>				</div>	
+?>				
+					</div>	
 			</section>
 
 			<footer>				

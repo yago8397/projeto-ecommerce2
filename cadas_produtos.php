@@ -21,6 +21,12 @@ $stmt->bindParam(6,$tipo,PDO::PARAM_STR);
 
 
 if($stmt->execute()){
-header('refresh:0;url=index_vendedor.php',true,303);
+
+?>
+<script  type="text/javascript" language="javascript1.5">
+	alert("Produto cadastrado com sucesso")
+	</script>
+<?php	
+header('refresh:0;url=cadastro_produtos.php',true,303);
 }
 ?>

@@ -19,13 +19,13 @@ include "conexao.php";
 
 					<div class="col-md-2  col-xl-2 mt-2 ">
 						<figure class="figure">
-						<a href="index.php">
+						<a href="index_vendedor.php">
 	        			<img class="img-fluid " src="imagens/logo.png" alt="Logo da empresa"/>
 	        			</a>
 	      				</figure>
 					</div>
 		      		<div class="col-md-7 col-xl-8 mt-3" >
-		      			<form  action="procurar.php" method="post">
+		      			<form  action="procurar_vendedor.php" method="post">
 		        		<input name="busca" id="busca" class="form-control mr-sm-2 " type="text" placeholder="Qual produto está procurando?" aria-label="Search">	
 		      			</form>
 		      		</div>		      		
@@ -35,8 +35,7 @@ if (isset($_SESSION['logarv'])){
 					<div class="col-md-3 col-xl-2 mt-1 mb-1 text-black ">
 					
 		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logarv'];?></a><br>Seja Bem-Vindo!</p>		      		
-		      		  		      		
-		      		<a href="carrinho.php" class="btn btn btn-info btn-sm m-1"><i class="fas fa-cart-plus"></i></a>
+		      				      		
 		      		<a href="deslogav.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
 
 
@@ -56,68 +55,49 @@ else{
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
-	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index_vendedor.php" >Cadastro de Produtos</a>
+	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index_vendedor.php">Início</a>
 					</li>
 					<li class="nav-item mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="cadastro_vendedor.php">Cadastro de Vendedor</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=informatica">Informática e Telefonia</a>
 					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">Nada2</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=eletrodomestico">Eletrodomésticos</a>
 					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">nada3</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=decoracao">Móveis e Decoração</a>
 					
 					<li class="nav-item dropdown ">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">nada4</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=entretenimento">Entretenimento</a>
 					</ul>																
 				</div>
 			</nav>			
 
 			<section>
-				<div class="col-md col-xl-6 offset-xl-3 mt-2 mb-2 p-3 border border-info rounded" style="background-color: #BDBDBD">
+				<div class="col-md-6 offset-md-3 mt-3 mb-3 p-1  border border-info rounded" style="background-color: #BDBDBD">
 					
-					<h5 class=" row card-header bg-info mb-2">Cadastro dos Produtos:</h5>
+					<h5 class="card-header bg-info">Menu Vendedor</h5>
 
-					<form  method="post" action="cadas_produtos.php">
+					<div class="col-md-8 offset-md-2 mt-4 mb-4">	
 
 					
-
-					<div class="form-group m-1">
-				    <label id="img">Imagem:</label>				    
-  					<input type="file" name="img" accept="image/*">  										
-				    </div>					
- 
-				    <div class="form-group m-1">
-				    <label id="nome">Nome:</label>
-				    <input required type="text" class="form-control" name="nome">
-				    </div>					
-
-				    <div class="form-group m-1">
-				    <label id="descri">Descrição:</label>
-				    <input required type="text" class="form-control" name="descri">
-				    </div>					
-
-				    <div class="form-group m-1">
-				    <label id="preco">Preço:</label>
-				    <input required type="text" class="form-control" name="preco">
-				    </div>					
-
-					<div class="form-group m-1">
-					<label id="tipo">Tipo de Usuário:</label>
-					<select name="tipo" class="form-control">
-					<option disabled selected>-</option>
-					<option>informatica</option>	
-					<option>decoracao</option>
-					<option>entretenimento</option>
-					<option>eletrodomestico</option>									
-					</select>
-					</div>			   				    				    
+	  				
+	    			<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="cadastro_produtos.php" >Cadastro de Produtos</a>
 					
-				   
-					<button class="btn btn-info col-md-4 offset-md-4" type="submit">Cadastrar</button>
+					
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="cadastro_vendedor.php">Cadastro de Vendedores</a>
+					
+					
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="excluir_produto.php">Excluir Produtos</a>
+					
+					
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="#">Pedidos</a>
+					
+					
+					</div>
+				</div>
+				
 
-					</form>
-				</div>								
+												
 			</section>
 
 			<footer>				
