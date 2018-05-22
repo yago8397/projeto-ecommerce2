@@ -37,27 +37,17 @@ if (isset($_SESSION['logarv'])){
 		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logarv'];?></a><br>Seja Bem-Vindo!</p>		      		
 		      		  		      		
 		      		<a href="carrinho.php" class="btn btn btn-info btn-sm m-1"><i class="fas fa-cart-plus"></i></a>
-		      		<a href="desloga.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
+		      		<a href="deslogav.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
 
 
 		      		</div>		      										
 <?php
 }
 else{
-?>
-					<div class="col-md-3 col-xl-2 mt-1 mb-1 ">
-		      		<div class="row m-1">
-		      			<a class="btn btn btn-info btn-sm mr-1" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
-		      			<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
-		      		</div>		      				      		
-		      		<div class="row m-1 ">
-		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
-		      		</div>
-		      		
-		      		</div>
-<?php
+	header('location:index.php');
 }
-?>									
+?>
+								
 				</div>				
 			</header>				
 			
@@ -69,7 +59,7 @@ else{
 	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index_vendedor.php" >Cadastro de Produtos</a>
 					</li>
 					<li class="nav-item mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">Nada1 </a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="cadastro_vendedor.php">Cadastro de Vendedor</a>
 					
 					<li class="nav-item dropdown mr-1">
 					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">Nada2</a>
@@ -103,8 +93,8 @@ else{
 				    </div>					
 
 				    <div class="form-group m-1">
-				    <label id="desc">Descrição:</label>
-				    <input required type="text" class="form-control" name="desc">
+				    <label id="descri">Descrição:</label>
+				    <input required type="text" class="form-control" name="descri">
 				    </div>					
 
 				    <div class="form-group m-1">

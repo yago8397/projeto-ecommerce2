@@ -7,7 +7,7 @@ if (isset($_SESSION['logar'])) {
 		unset($_SESSION['logar']);
 		header('refresh:0;url=index.php',true,303);
 		exit;
-	} 
+	}
 }
 
 ?>

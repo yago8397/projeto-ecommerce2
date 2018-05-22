@@ -30,14 +30,14 @@ include "conexao.php";
 		      			</form>
 		      		</div>		      		
 <?php 
-if (isset($_SESSION['logar'])){
+if (isset($_SESSION['logarv'])){
 ?>					
 					<div class="col-md-3 col-xl-2 mt-1 mb-1 text-black ">
 					
-		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logar'];?></a><br>Seja Bem-Vindo!</p>		      		
+		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logarv'];?></a><br>Seja Bem-Vindo!</p>		      		
 		      		  		      		
 		      		<a href="carrinho.php" class="btn btn btn-info btn-sm m-1"><i class="fas fa-cart-plus"></i></a>
-		      		<a href="desloga.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
+		      		<a href="deslogav.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
 
 
 		      		</div>		      										
@@ -66,19 +66,19 @@ else{
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
-	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php" >Início</a>
+	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index_vendedor.php" >Cadastro de Produtos</a>
 					</li>
 					<li class="nav-item mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=informatica">Informática e Telefonia</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="cadastro_vendedor.php">Cadastro de Vendedor</a>
 					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=eletrodomestico">Eletrodomésticos</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">Nada2</a>
 					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=decoracao">Móveis e Decoração</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">nada3</a>
 					
 					<li class="nav-item dropdown ">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=entretenimento">Entretenimento</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="#">nada4</a>
 					</ul>																
 				</div>
 			</nav>			

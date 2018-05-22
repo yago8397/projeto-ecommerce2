@@ -103,7 +103,7 @@ if($result = $stmt->fetchAll())
 					<img class="card-img-top p-3" src=<?php echo $alvos['img']; ?> alt="Card image cap">
 					<div class="card-body bg-info">
 					<h5 class="card-title text-center h-100 w-auto"><?php echo $alvos['nome'] ;?></h5>
-					<p class="card-text text-center h-100 w-auto"><?php echo $alvos['desc']; ?></p>
+					<p class="card-text text-center h-100 w-auto"><?php echo $alvos['descri']; ?></p>
 					<p class="card-text text-center h-100 w-auto"><?php echo "R$ ".$alvos['preco']; ?></p>
 					</div>					
 					<div class="row p-3 m-0">
@@ -112,7 +112,7 @@ if($result = $stmt->fetchAll())
 					<button class="btn btn-info p-1">Comprar</button>
 					<input type="hidden" name="img" value="<?php echo $alvos['img']; ?>">
 					<input type="hidden" name="nome" value="<?php echo $alvos['nome'] ;?>">
-					<input type="hidden" name="desc" value="<?php echo $alvos['desc']; ?>">
+					<input type="hidden" name="descri" value="<?php echo $alvos['descri']; ?>">
 					<input type="hidden" name="preco" value="<?php echo $alvos['preco']; ?>">
 					<input type="hidden" name="cod_produto" value="<?php echo $alvos['cod_produto']; ?>">
 					</form>
