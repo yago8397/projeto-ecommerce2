@@ -73,31 +73,84 @@ else{
 			</nav>			
 
 			<section>
-				<div class="col-md-6 offset-md-3 mt-3 mb-3 p-1  border border-info rounded" style="background-color: #BDBDBD">
-					
-					<h5 class="card-header bg-info">Menu Vendedor</h5>
+				<div class="border border-info rounded" style="background-color: #BDBDBD">		
+					<h4 class="row card-header bg-info mb-2 m-1">Pedidos</h4>
+					<div class="row ml-1">
+					<div class="col-md-1"><h5>Número</h5></div>	
+					<div class="col-md-3"><h5>Produtos</h5></div>
+					<div class="col-md-2"><h5>Cliente</h5></div>
+					<div class="col-md-3"><h5>Pagamento</h5></div>
+					<div class="col-md-3"><h5>Status</h5></div>		
+					</div>	
+					<div class="dropdown-divider"></div>
+<?php 
+$stmt = $pdo->prepare('SELECT * FROM pedidos');
+$stmt->execute();
+if($result = $stmt->fetchAll())
+	foreach ($result as $alvos){
+?>
+	 				<div class="row ml-1">
 
-					<div class="col-md-8 offset-md-2 mt-4 mb-4">	
+	 					<div class="col-md-1">
+	 					<table>
+	 					<br>
+	 					<tr>
+	 					<td><p class="btn btn btn-info btn-sm m-1"><?php echo $alvos['cod_pedido'] ?></p></td>
+	 					</tr>
+	 					</table>
+	 					</div>	
+	 					
+	 					<div class="col-md-3">
+	 					<table>
+	 					<br>
+	 					<tr>
+	 					<td><p><?php echo $alvos['nome_produto'] ?></p></td>	
+	 					</tr>
+	 					</table>
+	 					</div>
 
-					
-	  				
-	    			<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="cadastro_produtos.php" >Cadastro de Produtos</a>
-					
-					
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="cadastro_vendedor.php">Cadastro de Vendedores</a>
-					
-					
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="excluir_produto.php">Excluir Produtos</a>
-					
-					
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="pedidos_vendedor.php">Pedidos</a>
-					
-					
+	 					<div class="col-md-2">
+	 					<table>
+	 					<tr>
+	 					<td><p>Nome: <?php echo $alvos['nome_usuario'] ?></p></td>
+	 					</tr>	
+	 					<tr>
+	 					<td><p>Email: <?php echo $alvos['email_usuario'] ?></p></td>	
+	 					</tr>	 					
+	 					</table>
+	 					</div>
+
+	 					<div class="col-md-3">
+	 					<table>
+	 					<tr>
+	 					<td><p>Total da Compra: <?php echo number_format((float)$alvos['total_pagar'], 2, ',', '');?></p></td>	
+	 					</tr>
+	 					<tr>
+	 					<td><p>Forma de pagamento:<br><?php echo $alvos['parcelas'] ?> </p></td>	
+	 					</tr>	 					 					
+	 					</table>
+	 					</div>
+
+	 					<div class="col-md-3">
+	 					<table>
+	 					<tr>
+	 					<td><p><?php echo $alvos['processo_entrega'] ?></p></td>	
+	 					</tr>
+	 					<tr>
+	 					<td><p>Data de emissão: <br><?php echo $alvos['data_pedido'] ?></p></td>	
+	 					</tr>	 					 					
+	 					</table>
+	 					</div>
+
+
+	 							
 					</div>
-				</div>
-				
 
-												
+					<div class="dropdown-divider"></div>
+<?php
+}
+?>				
+				</div>												
 			</section>
 
 			<footer>				

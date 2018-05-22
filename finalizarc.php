@@ -26,7 +26,7 @@
 	$email_usuario = $_SESSION['email_usuario'];
 	$parcelas = $_POST['parcelas'];	
 	$processo_entrega = "Pedido Realizado";
-	$data_pedido = date("d/m/Y  H:i:s");
+	$data_pedido = date("d/m/Y H:i:s");
 
 
 	if ($parcelas<=10){

@@ -151,9 +151,9 @@ $totalc = $totalc + $td[3];
 					<label >Forma de Pagamento:</label>
 					<select name="parcelas" class="form-control">
 					<option disabled selected>-</option>
-					<option value="0">R$ <?php echo number_format((float)$totalc, 2, ',', '');?> à vista.</option>
-					<option value="10">10x de R$ <?php echo number_format((float)$totalc/10, 2, ',', '');?> sem juros.</option>
-					<option value="12">12x de R$ <?php echo number_format((float)$totalc/12*1.1, 2, ',', '');?> com 10% juros.</option>
+					<option value="à Vista">R$ <?php echo number_format((float)$totalc, 2, ',', '');?> à vista.</option>
+					<option value="10x de R$ <?php echo number_format((float)$totalc/10, 2, ',', '');?> sem juros.">10x de R$ <?php echo number_format((float)$totalc/10, 2, ',', '');?> sem juros.</option>
+					<option value="12x de R$ <?php echo number_format((float)$totalc/12*1.1, 2, ',', '');?> com 10% juros.">12x de R$ <?php echo number_format((float)$totalc/12*1.1, 2, ',', '');?> com 10% juros.</option>
 					</select>
 					<input type="hidden" name="total_pagar" value="<?php echo $totalc ?>">
 					<input type="hidden" name="total_pagar_j" value="<?php echo $totalc*1.1 ?>">

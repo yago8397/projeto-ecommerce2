@@ -102,7 +102,7 @@ else{
 				    </div>					
 
 					<div class="form-group m-1">
-					<label id="tipo">Tipo de Usuário:</label>
+					<label id="tipo">Tipo de Produto:</label>
 					<select name="tipo" class="form-control">
 					<option disabled selected>-</option>
 					<option>informatica</option>	
