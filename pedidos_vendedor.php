@@ -95,7 +95,7 @@ if($result = $stmt->fetchAll())
 	 					<table>
 	 					<br>
 	 					<tr>
-	 					<td><p class="btn btn btn-info btn-sm m-1"><?php echo $alvos['cod_pedido'] ?></p></td>
+	 					<td><p class="btn btn btn-info btn-sm m-1 disabled"><?php echo $alvos['cod_pedido'] ?></p></td>
 	 					</tr>
 	 					</table>
 	 					</div>	

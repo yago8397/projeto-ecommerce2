@@ -73,31 +73,17 @@ else{
 			</nav>			
 
 			<section>
-				<div class="col-md-6 offset-md-3 mt-3 mb-3 p-1  border border-info rounded" style="background-color: #BDBDBD">
-					
-					<h5 class="card-header bg-info">Menu Vendedor</h5>
-
-					<div class="col-md-8 offset-md-2 mt-4 mb-4">	
-
-					
+				<div class="col-md col-xl-4   mt-5 mb-5 ">	
+					<h5 class="card-header bg-info">Menu Vendedor</h5>					
 	  				
-	    			<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="cadastro_produtos.php" >Cadastro de Produtos</a>
+	    			<a class="nav-link btn btn-outline-dark btn-xl bg-secondary p-1 text-white m-2" href="cadastro_produtos.php" >Cadastro de Produtos</a>					
 					
+					<a class="nav-link btn btn-outline-dark btn-xl bg-secondary p-1 text-white m-2" href="cadastro_vendedor.php">Cadastro de Vendedores</a>					
 					
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="cadastro_vendedor.php">Cadastro de Vendedores</a>
+					<a class="nav-link btn btn-outline-dark btn-xl bg-secondary p-1 text-white m-2" href="excluir_produto.php">Excluir Produtos</a>					
 					
-					
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="excluir_produto.php">Excluir Produtos</a>
-					
-					
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 text-white m-2" href="pedidos_vendedor.php">Pedidos</a>
-					
-					
-					</div>
-				</div>
-				
-
-												
+					<a class="nav-link btn btn-outline-dark btn-xl bg-secondary p-1 text-white m-2" href="pedidos_vendedor.php">Pedidos</a>					
+				</div>												
 			</section>
 
 			<footer>				

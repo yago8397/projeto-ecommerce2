@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
--- https://www.phpmyadmin.net/
+-- version 4.2.11
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Maio-2018 às 21:33
--- Versão do servidor: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: 23-Maio-2018 às 02:29
+-- Versão do servidor: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `lojavt`
@@ -28,8 +26,8 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `pedidos`
 --
 
-CREATE TABLE `pedidos` (
-  `cod_pedido` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pedidos` (
+`cod_pedido` int(11) NOT NULL,
   `cod_produto` varchar(255) NOT NULL,
   `nome_produto` varchar(255) NOT NULL,
   `preco_produto` varchar(255) NOT NULL,
@@ -40,7 +38,7 @@ CREATE TABLE `pedidos` (
   `total_pagar` float(9,2) NOT NULL,
   `data_pedido` varchar(255) NOT NULL,
   `parcelas` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pedidos`
@@ -55,32 +53,34 @@ INSERT INTO `pedidos` (`cod_pedido`, `cod_produto`, `nome_produto`, `preco_produ
 -- Estrutura da tabela `produtos`
 --
 
-CREATE TABLE `produtos` (
-  `cod_produto` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `produtos` (
+`cod_produto` int(11) NOT NULL,
   `img` varchar(255) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `descri` varchar(255) NOT NULL,
   `preco` float NOT NULL,
   `tipo` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `produtos`
 --
 
 INSERT INTO `produtos` (`cod_produto`, `img`, `nome`, `descri`, `preco`, `tipo`) VALUES
-(1, 'imagens/iphone.jpg', 'iPhone 7 Plus', '128GB Vermelho Tela Retina HD 5,5\'\' 3D Touch Câmera Dupla de 12MP.', 4324.99, 'informatica'),
-(2, 'imagens/tv.png', 'Smart TV LED 55\'\' Philco', 'PH55A17DSGWA Full HD com Conversor Digital 3 HDMI 2 USB Wi-Fi.', 2299.99, 'eletrodomestico'),
-(3, 'imagens/tb.png', 'Tablet Multilaser M7S', '8GB Wi-Fi 7\'\' Android 4.4 Quad Core - Preto.', 271, 'informatica'),
-(7, 'imagens/pcgamer.jpg', 'PC G-FIRE AMD A4 7300', '8GB 1TB Radeon HD8470D 2GB integrada Computador Gamer Hermes V GKH HTG-96', 1649, 'informatica'),
+(1, 'imagens/iphone.jpg', 'iPhone 7 Plus', '128GB Vermelho Tela Retina HD 5,5''''', 4324.99, 'informatica'),
+(2, 'imagens/tv.png', 'Smart TV LED 55'''' Philco', 'PH55A17DSGWA Full HD com Conversor Digital', 2299.99, 'eletrodomestico'),
+(3, 'imagens/tb.png', 'Tablet Multilaser M7S', '8GB Wi-Fi 7'''' Android 4.4 Quad Core - Preto.', 271, 'informatica'),
+(7, 'imagens/pcgamer.jpg', 'PC G-FIRE AMD A4 7300', '8GB 1TB Radeon HD8470D 2GB', 1649, 'informatica'),
 (9, 'imagens/ar.jpg', 'Ar Condicionado Split Hi-Wall', 'Springer Midea 12.000 BTUs Frio 220V', 1124.99, 'eletrodomestico'),
-(10, 'imagens/audio.jpg', 'Interface Gravação Behringer', 'U-phoria Um2 USB pré Xenyx Audio', 258.99, 'eletrodomestico'),
-(11, 'imagens/tapete.jpg', 'Tapete De Sala 2,00x2,40', 'Bege Com Mesclado,luxo,macio,felpudo Com 4cm De Pelagem', 129, 'decoracao'),
 (12, 'imagens/armario.jpg', 'Armário Cozinha Compacta', 'Julia 4 Peças Preto Poquema', 289, 'decoracao'),
-(13, 'imagens/banheiro.jpg', 'Conjunto de Banheiro Completo class', 'Balcão,painel,cuba', 511, 'decoracao'),
-(14, 'imagens/jogo.jpg', 'Game God Of War', ' PS4', 199, 'entretenimento'),
-(15, 'imagens/filme.jpg', 'DVD - Star Wars', 'Os Últimos Jedi', 29.9, 'entretenimento'),
-(16, 'imagens/livro.jpg', 'Livro', 'As Aventuras na Netoland com Luccas Neto', 14.9, 'entretenimento');
+(13, 'imagens/banheiro.jpg', 'Conjunto de Banheiro Completo class', 'Balcão, painel, cuba', 511, 'decoracao'),
+(17, 'imagens/ft.jpg', 'Livro', 'Fairy Tail Vol 51 - Jbc', 10.15, 'entretenimento'),
+(18, 'imagens/tm.jpg', 'Livro', 'Turma da Mônica - O Pequeno Príncipe', 40.83, 'entretenimento'),
+(19, 'imagens/de.jpg', 'Filme', 'Blu-ray Doutor Estranho 3D', 53.9, 'entretenimento'),
+(20, 'imagens/gc.jpg', 'Filme', 'Gloriosa Chama', 16.9, 'entretenimento'),
+(21, 'imagens/sc.jpg', 'Jogo', 'Shadow of the Colossus - PS4', 199.99, 'entretenimento'),
+(22, 'imagens/dz.jpg', 'Jogo', 'Dragon Ball Fighterz - PS4', 179.9, 'entretenimento'),
+(23, 'imagens/not.png', 'Notebook Dell Inspiron', 'i15-5566-A10P Intel Core i3 4GB 1TB ', 2399.99, 'informatica');
 
 -- --------------------------------------------------------
 
@@ -88,8 +88,8 @@ INSERT INTO `produtos` (`cod_produto`, `img`, `nome`, `descri`, `preco`, `tipo`)
 -- Estrutura da tabela `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `cod_usuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuarios` (
+`cod_usuario` int(11) NOT NULL,
   `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `senha` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE `usuarios` (
   `cid` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `ende` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `tipo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuarios`
@@ -131,19 +131,19 @@ INSERT INTO `usuarios` (`cod_usuario`, `login`, `email`, `senha`, `csenha`, `nom
 -- Indexes for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`cod_pedido`);
+ ADD PRIMARY KEY (`cod_pedido`);
 
 --
 -- Indexes for table `produtos`
 --
 ALTER TABLE `produtos`
-  ADD PRIMARY KEY (`cod_produto`);
+ ADD PRIMARY KEY (`cod_produto`);
 
 --
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`cod_usuario`);
+ ADD PRIMARY KEY (`cod_usuario`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -153,21 +153,17 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `cod_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
-
+MODIFY `cod_pedido` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
+MODIFY `cod_produto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-COMMIT;
-
+MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -113,7 +113,7 @@ else{
 					</div>			   				    				    
 					
 				   
-					<button class="btn btn-info col-md-4 offset-md-4" type="submit">Cadastrar</button>
+					<button class="btn btn-info col-md-4 offset-md-4 mt-2" type="submit">Cadastrar</button>
 
 					</form>
 				</div>								
