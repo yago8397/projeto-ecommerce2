@@ -134,7 +134,16 @@ if($result = $stmt->fetchAll())
 	 					<div class="col-md-3">
 	 					<table>
 	 					<tr>
-	 					<td><p><?php echo $alvos['processo_entrega'] ?></p></td>	
+	 					<td><p><form method="post" action="cadastropedidos.php">
+	 						<label for="processo_entrega">status da entrega</label>
+	 						<select name="processo_entrega" class="form-control">
+	 							<option value="pronto para a entrega">pronto para a entrega</option>
+	 							<option value="saiu para a entrega">saiu para a entrega</option>
+	 							<option value="entregue">entregue</option>
+	 							</select>
+	 							<input type="hidden" name="cod_pedido" value="<?php echo $alvos['cod_pedido']?>">
+	 							<button type="submit">alterar</button>
+	 					</form></p></td>	
 	 					</tr>
 	 					<tr>
 	 					<td><p>Data de emissão: <br><?php echo $alvos['data_pedido'] ?></p></td>	
