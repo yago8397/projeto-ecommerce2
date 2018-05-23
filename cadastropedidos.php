@@ -6,7 +6,7 @@ include 'conexao.php';
 	$processo_entrega = $_POST['processo_entrega']; 
 
 
-$stmt = $pdo->prepare ('UPDATE pedidos SET processo_entrega = ? WHERE id = ?');
+$stmt = $pdo->prepare ('UPDATE pedidos SET processo_entrega = ? WHERE cod_pedido = ?');
 
 $stmt->bindParam(1,$processo_entrega,PDO::PARAM_STR);
 $stmt->bindParam(2,$cod_pedido,PDO::PARAM_INT);
