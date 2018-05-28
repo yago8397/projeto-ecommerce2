@@ -19,34 +19,45 @@ include "conexao.php";
 
 					<div class="col-md-2  col-xl-2 mt-2 ">
 						<figure class="figure">
-						<a href="index_vendedor.php">
+						<a href="index.php">
 	        			<img class="img-fluid " src="imagens/logo.png" alt="Logo da empresa"/>
 	        			</a>
 	      				</figure>
 					</div>
 		      		<div class="col-md-7 col-xl-8 mt-3" >
-		      			<form  action="procurar_vendedor.php" method="post">
+		      			<form  action="procurar.php" method="post">
 		        		<input name="busca" id="busca" class="form-control mr-sm-2 " type="text" placeholder="Qual produto está procurando?" aria-label="Search">	
 		      			</form>
 		      		</div>		      		
 <?php 
-if (isset($_SESSION['logarv'])){
+if (isset($_SESSION['logar'])){
 ?>					
 					<div class="col-md-3 col-xl-2 mt-1 mb-1 text-black ">
 					
-		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logarv'];?></a><br>Seja Bem-Vindo!</p>		      		
-		      				      		
-		      		<a href="deslogav.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
+		      		<p class="m-1">Ola, <a href="perfil_usuario.php"><?php echo $_SESSION['logar'];?></a><br>Seja Bem-Vindo!</p>		      		
+		      		  		      		
+		      		<a href="carrinho.php" class="btn btn btn-info btn-sm m-1"><i class="fas fa-cart-plus"></i></a>
+		      		<a href="desloga.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>
 
 
 		      		</div>		      										
 <?php
 }
 else{
-	header('location:index.php');
-}
 ?>
-								
+					<div class="col-md-3 col-xl-2 mt-1 mb-1 ">
+		      		<div class="row m-1">
+		      			<a class="btn btn btn-info btn-sm mr-1" data-toggle="modal" data-target="#exampleModal" href="">Login</a>
+		      			<a href="carrinho.php" class="btn btn btn-info btn-sm"><i class="fas fa-cart-plus"></i></a>
+		      		</div>		      				      		
+		      		<div class="row m-1 ">
+		      			<a class="btn btn btn-info btn-sm " href="cadastro.php">Cadastro</a>
+		      		</div>
+		      		
+		      		</div>
+<?php
+}
+?>									
 				</div>				
 			</header>				
 			
@@ -55,53 +66,51 @@ else{
 
 					<ul class="nav nav-pills mt-2 p-1 border border-info border-right-0 border-left-0">
 	  				<li class="nav-item mr-1">
-	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index_vendedor.php">Início</a>
+	    			<a class="nav-link btn btn btn-dark btn-sm bg-info p-1" href="index.php" >Início</a>
 					</li>
 					<li class="nav-item mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=informatica">Informática e Telefonia</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=informatica">Informática e Telefonia</a>
 					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=eletrodomestico">Eletrodomésticos</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=eletrodomestico">Eletrodomésticos</a>
 					
 					<li class="nav-item dropdown mr-1">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=decoracao">Móveis e Decoração</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=decoracao">Móveis e Decoração</a>
 					
 					<li class="nav-item dropdown ">
-					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1 disabled text-dark" href="categoria.php?categoria=entretenimento">Entretenimento</a>
+					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=entretenimento">Entretenimento</a>
 					</ul>																
 				</div>
 			</nav>			
 
 			<section>
-				
-				<div class="row justify-content-center">
+				<div class="row justify-content-center m-5">				
 <?php 
-$busca = $_POST['busca'];
+$cod = $_GET['cod'];
 
-$stmt = $pdo->prepare('SELECT * FROM produtos WHERE nome LIKE ? or tipo LIKE ?');
-$stmt->bindValue(1,'%'.$busca.'%');
-$stmt->bindValue(2,'%'.$busca.'%');
-$stmt->execute();
+$stmt = $pdo->prepare('SELECT * FROM produtos WHERE cod_produto = ?');
+$stmt->bindParam(1, $cod, PDO::PARAM_STR);
 $stmt->execute();
 if($result = $stmt->fetchAll())
 	foreach ($result as $alvos){
  ?>
-
-					<div class="col-md-3 m-1">
-						
-					<img class="card-img-top p-3" src=<?php echo $alvos['img']; ?> alt="Card image cap">					
-					<div class="row">
-					<h5 class="card-title h-100 w-auto"><?php echo $alvos['nome'] ;?></h5>
+					
+					<div class="col-md-4">	
+					<img class="card-img-top p-3" src=<?php echo $alvos['img']; ?> alt="Card image cap">	
 					</div>
+					<div class="col-md-7 mt-5">				
 					<div class="row">
+					<h5 class="card-title h-100 w-auto" style="height: 35px"><?php echo $alvos['nome'] ;?></h5>
+					</div>
+					<div class="row mt-3">
 					<p class="card-text h-100 w-auto"><?php echo $alvos['descri']; ?></p>
 					</div>
-					<div class="row">
+					<div class="row mt-3">
 					<h5 class="card-text h-100 w-auto">R$ <?php echo number_format((float)$alvos['preco'], 2, ',', '');?></h5>
 					</div>					
 
-					<div class="row mt-2">					
-					<a href="perfil_produto.php?cod=<?php echo $alvos['cod_produto'] ?>" class="btn btn-info p-1 mr-1">Detalhes</a>					
+					<div class="row mt-2 aline-bottom">					
+										
 					<form action="start_carrinho.php" method="post">
 					<button class="btn btn-info p-1">Comprar</button>
 					<input type="hidden" name="img" value="<?php echo $alvos['img']; ?>">
@@ -112,17 +121,13 @@ if($result = $stmt->fetchAll())
 					</form>
 					
 					</div>
-					</div>					
-<?php 
-}else{
-?>
-<script  type="text/javascript" language="javascript1.5">
-	alert("Produto inválidos!")
-	</script>
+					</div>
+					
+					
 <?php
-	header('refresh:0;url=index_vendedor.php',true,303);
 }
-?>					
+?>				
+					
 				</div>
 			</section>
 

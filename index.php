@@ -113,7 +113,7 @@ if($result = $stmt->fetchAll())
 						</div>					
 
 						<div class="row mt-2">					
-						<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>					
+						<a href="perfil_produto.php?cod=<?php echo $alvos['cod_produto'] ?>" class="btn btn-info p-1 mr-1">Detalhes</a>					
 						<form action="start_carrinho.php" method="post">
 						<button class="btn btn-info p-1">Comprar</button>
 						<input type="hidden" name="img" value="<?php echo $alvos['img']; ?>">
