@@ -135,14 +135,14 @@ if($result = $stmt->fetchAll())
 	 					<table>
 	 					<tr>
 	 					<td><p><form method="post" action="cadastropedidos.php">
-	 						<label for="processo_entrega">status da entrega</label>
+	 						<label for="processo_entrega"></label>
 	 						<select name="processo_entrega" class="form-control">
-	 							<option value="pronto para a entrega">pronto para a entrega</option>
-	 							<option value="saiu para a entrega">saiu para a entrega</option>
-	 							<option value="entregue">entregue</option>
+	 							<option value="Pronto para a entrega">Pronto para a entrega</option>
+	 							<option value="Saiu para a entrega">Saiu para a entrega</option>
+	 							<option value="Entregue">Entregue</option>
 	 							</select>
 	 							<input type="hidden" name="cod_pedido" value="<?php echo $alvos['cod_pedido']?>">
-	 							<button type="submit">alterar</button>
+	 							<button class="btn btn btn-info btn-sm m-1" type="submit">Alterar</button>
 	 					</form></p></td>	
 	 					</tr>
 	 					<tr>

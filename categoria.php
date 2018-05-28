@@ -34,7 +34,7 @@ if (isset($_SESSION['logar'])){
 ?>					
 					<div class="col-md-3 col-xl-2 mt-1 mb-1 text-black ">
 					
-		      		<p class="m-1">Ola, <a href=""><?php echo $_SESSION['logar'];?></a><br>Seja Bem-Vindo!</p>		      		
+		      		<p class="m-1">Ola, <a href="perfil_usuario.php"><?php echo $_SESSION['logar'];?></a><br>Seja Bem-Vindo!</p>		      		
 		      		  		      		
 		      		<a href="carrinho.php" class="btn btn btn-info btn-sm m-1"><i class="fas fa-cart-plus"></i></a>
 		      		<a href="desloga.php?acao2=deslogar" class="btn btn btn-info btn-sm m-1"><i class="fas fa-sign-out-alt"></i></a>

@@ -81,54 +81,80 @@ else{
 					<a class="nav-link btn btn-outline-dark btn-sm bg-secondary p-1" href="categoria.php?categoria=entretenimento">Entretenimento</a>
 					</ul>																
 				</div>
-			</nav>			
+			</nav>				
 
-				<section>
-					<div class="row justify-content-center">
-						<figure class="figure mt-2 mb-2">
-		        		<img class="img-fluid"  src="imagens/gif.gif" alt="Banner da empresa" />
-		      			</figure>
-					</div>
-
-					<div class="row justify-content-center">				
+			<section>
+				<div class="border border-info rounded" style="background-color: #BDBDBD">		
+					<h4 class="row card-header bg-info mb-2 m-1">Pedidos</h4>
+					<div class="row ml-1">
+					<div class="col-md-1"><h5>Número</h5></div>	
+					<div class="col-md-3"><h5>Produtos</h5></div>
+					<div class="col-md-3"><h5>Pagamento</h5></div>
+					<div class="col-md-3"><h5>Status</h5></div>		
+					</div>	
+					<div class="dropdown-divider"></div>
 <?php 
-$stmt = $pdo->prepare('SELECT * FROM produtos');
-$stmt->bindParam(1, $tipo, PDO::PARAM_STR);
+$cod = $_SESSION['cod_usuario'];
+
+$stmt = $pdo->prepare('SELECT * FROM pedidos WHERE cod_usuario = ?');
+$stmt->bindParam(1, $cod, PDO::PARAM_STR);
 $stmt->execute();
 if($result = $stmt->fetchAll())
 	foreach ($result as $alvos){
 ?>
+				<div class="row ml-1">
 
-						<div class="col-md-3 m-1">
-							
-						<img class="card-img-top p-3" src=<?php echo $alvos['img']; ?> alt="Card image cap">					
-						<div class="row">
-						<h5 class="card-title h-100 w-auto"><?php echo $alvos['nome'] ;?></h5>
-						</div>
-						<div class="row">
-						<p class="card-text h-100 w-auto"><?php echo $alvos['descri']; ?></p>
-						</div>
-						<div class="row">
-						<h5 class="card-text h-100 w-auto">R$ <?php echo number_format((float)$alvos['preco'], 2, ',', '');?></h5>
-						</div>					
+	 					<div class="col-md-1">
+	 					<table>
+	 					<br>
+	 					<tr>
+	 					<td><p class="btn btn btn-info btn-sm m-1 disabled"><?php echo $alvos['cod_pedido'] ?></p></td>
+	 					</tr>
+	 					</table>
+	 					</div>	
+	 					
+	 					<div class="col-md-3">
+	 					<table>
+	 					<br>
+	 					<tr>
+	 					<td><p><?php echo $alvos['nome_produto'] ?></p></td>	
+	 					</tr>
+	 					</table>
+	 					</div>	 					
 
-						<div class="row mt-2">					
-						<a href="#" class="btn btn-info p-1 mr-1">Detalhes</a>					
-						<form action="start_carrinho.php" method="post">
-						<button class="btn btn-info p-1">Comprar</button>
-						<input type="hidden" name="img" value="<?php echo $alvos['img']; ?>">
-						<input type="hidden" name="nome" value="<?php echo $alvos['nome'] ;?>">
-						<input type="hidden" name="descri" value="<?php echo $alvos['descri']; ?>">
-						<input type="hidden" name="preco" value="<?php echo $alvos['preco']; ?>">
-						<input type="hidden" name="cod_produto" value="<?php echo $alvos['cod_produto']; ?>">
-						</form>
-						
-						</div>
-						</div>
+	 					<div class="col-md-3">
+	 					<table>
+	 					<tr>
+	 					<td><p>Total à pagar: <?php echo number_format((float)$alvos['total_pagar'], 2, ',', '');?></p></td>	
+	 					</tr>
+	 					<tr>
+	 					<td><p>Forma de pagamento:<br><?php echo $alvos['parcelas'] ?> </p></td>	
+	 					</tr>	 					 					
+	 					</table>
+	 					</div>
+
+	 					<div class="col-md-3">
+	 					<table>
+	 					<tr>
+	 					<td><p><?php echo $alvos['processo_entrega'] ?></p></td>	
+	 					</tr>
+	 					<tr>
+	 					<td><p>Data de emissão: <br><?php echo $alvos['data_pedido'] ?></p></td>	
+	 					</tr>	 					 					
+	 					</table>
+	 					</div>
+	 							
+					</div>
+
+					<div class="dropdown-divider"></div>
+
 <?php
 }
-?>				
-					</div>	
+?>					
+					
+										
+										
+				</div>
 			</section>
 
 			<footer>				
@@ -141,7 +167,6 @@ if($result = $stmt->fetchAll())
 					</div>
 					</div>								
 			</footer>
-
 
 		</div>		
 
